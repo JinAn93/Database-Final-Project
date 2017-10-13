@@ -1,4 +1,4 @@
-package com.fasoo.spring.model;
+package model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

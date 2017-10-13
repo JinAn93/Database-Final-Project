@@ -1,4 +1,4 @@
-package com.fasoo.spring.controller;
+package controller;
 
 import javax.validation.Valid;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.fasoo.spring.model.Post;
-import com.fasoo.spring.service.IPostService;
+import model.Post;
+import service.IPostService;
 
 @Controller
 @RequestMapping("/")

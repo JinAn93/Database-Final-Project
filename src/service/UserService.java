@@ -1,4 +1,4 @@
-package com.fasoo.spring.service;
+package service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasoo.spring.dao.IUserDao;
-import com.fasoo.spring.model.User;
+import dao.IUserDao;
+import model.User;
 
 @Service("userService")
 @Transactional

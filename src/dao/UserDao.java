@@ -1,4 +1,4 @@
-package com.fasoo.spring.dao;
+package dao;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -8,7 +8,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
-import com.fasoo.spring.model.User;
+import model.User;
 
 @Repository("userDao")
 public class UserDao extends AbstractDao<String, User> implements IUserDao {

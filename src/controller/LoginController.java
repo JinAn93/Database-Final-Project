@@ -1,4 +1,4 @@
-package com.fasoo.spring.controller;
+package controller;
 
 import java.util.Locale;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.fasoo.spring.model.User;
-import com.fasoo.spring.service.IUserService;
+import model.User;
+import service.IUserService;
 
 @Controller
 @RequestMapping("/")

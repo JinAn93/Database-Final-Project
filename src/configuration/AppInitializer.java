@@ -1,4 +1,4 @@
-package com.fasoo.spring.configuration;
+package configuration;
  
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer; 
 

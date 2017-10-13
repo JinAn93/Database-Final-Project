@@ -1,4 +1,4 @@
-package com.fasoo.spring.dao;
+package dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.fasoo.spring.model.Reply;
+import model.Reply;
 
 @Repository("replyDao")
 public class ReplyDao extends AbstractDao<Integer, Reply> implements IReplyDao {

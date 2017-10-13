@@ -1,8 +1,8 @@
-package com.fasoo.spring.dao;
+package dao;
 
 import java.util.List;
 
-import com.fasoo.spring.model.Reply;
+import model.Reply;
 
 /**
  * Data Access Object (DAO) for Reply

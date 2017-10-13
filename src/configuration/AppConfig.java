@@ -1,4 +1,4 @@
-package com.fasoo.spring.configuration;
+package configuration;
  
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +14,7 @@ import org.springframework.web.servlet.view.JstlView;
  
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.fasoo.spring")
+@ComponentScan(basePackages = "")
 public class AppConfig extends WebMvcConfigurerAdapter {
     
 	@Override

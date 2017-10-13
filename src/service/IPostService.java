@@ -1,8 +1,8 @@
-package com.fasoo.spring.service;
+package service;
 
 import java.util.List;
 
-import com.fasoo.spring.model.Post;
+import model.Post;
 
 public interface IPostService {
 

@@ -1,4 +1,4 @@
-package com.fasoo.spring.dao;
+package dao;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

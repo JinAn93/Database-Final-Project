@@ -1,8 +1,8 @@
-package com.fasoo.spring.service;
+package service;
 
 import java.util.List;
 
-import com.fasoo.spring.model.User;
+import model.User;
 
 public interface IUserService {
 

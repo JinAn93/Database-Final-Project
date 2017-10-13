@@ -1,8 +1,8 @@
-package com.fasoo.spring.dao;
+package dao;
 
 import java.util.List;
 
-import com.fasoo.spring.model.User;
+import model.User;
 
 /**
  * Data Access Object(DAO) for User.

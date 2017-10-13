@@ -1,7 +1,7 @@
-package com.fasoo.spring.dao;
+package dao;
 
 import java.util.List;
-import com.fasoo.spring.model.Post;
+import model.Post;
 
 /**
  * Data Access Object (DAO) for Post
