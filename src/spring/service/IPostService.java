@@ -1,8 +1,8 @@
-package service;
+package spring.service;
 
 import java.util.List;
 
-import model.Post;
+import spring.model.Post;
 
 public interface IPostService {
 

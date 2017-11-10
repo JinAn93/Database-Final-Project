@@ -1,4 +1,4 @@
-package com.fasoo.spring.service;
+package spring.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasoo.spring.dao.IPostDao;
-import com.fasoo.spring.model.Post;
+import spring.dao.IPostDao;
+import spring.model.Post;
 
 @Service("postService")
 @Transactional

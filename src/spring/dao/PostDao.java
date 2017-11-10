@@ -1,4 +1,4 @@
-package dao;
+package spring.dao;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
-import model.Post;
+import spring.model.Post;
 
 @Repository("postDao")
 public class PostDao extends AbstractDao<Integer, Post> implements IPostDao{

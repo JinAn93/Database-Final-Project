@@ -1,4 +1,4 @@
-package configuration;
+package spring.configuration;
 
 import java.util.Properties;
 

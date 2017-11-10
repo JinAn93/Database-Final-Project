@@ -1,4 +1,4 @@
-package configuration;
+package spring.configuration;
  
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -14,14 +14,14 @@ import org.springframework.web.servlet.view.JstlView;
  
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "")
+@ComponentScan(basePackages = "spring")
 public class AppConfig extends WebMvcConfigurerAdapter {
     
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
-	
+
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

@@ -90,7 +90,7 @@ body {
 		</c:when>
 		<c:otherwise>
 			<%
-				response.sendRedirect("http://localhost:8080/Basic-Dashboard-Project/dashboard");
+				response.sendRedirect("http://localhost:8080/Database-Final-Project/dashboard");
 			%>
 		</c:otherwise>
 	</c:choose>

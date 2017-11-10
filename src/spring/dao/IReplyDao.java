@@ -1,8 +1,8 @@
-package dao;
+package spring.dao;
 
 import java.util.List;
 
-import model.Reply;
+import spring.model.Reply;
 
 /**
  * Data Access Object (DAO) for Reply

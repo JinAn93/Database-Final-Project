@@ -1,8 +1,8 @@
-package dao;
+package spring.dao;
 
 import java.util.List;
 
-import model.User;
+import spring.model.User;
 
 /**
  * Data Access Object(DAO) for User.

@@ -1,8 +1,8 @@
-package service;
+package spring.service;
 
 import java.util.List;
 
-import model.Reply;
+import spring.model.Reply;
 
 public interface IReplyService {
 

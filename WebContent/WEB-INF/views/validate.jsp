@@ -31,10 +31,10 @@
 		ResultSet rs = pst.executeQuery();
 		if (rs.next()){
 			session.setAttribute("user_id", user_id);
-			response.sendRedirect("http://localhost:8080/Basic-Dashboard-Project/dashboard");
+			response.sendRedirect("http://localhost:8080/Database-Final-Project/dashboard");
 		}
 		else
-			out.println("Invalid password <a href='http://localhost:8080/Basic-Dashboard-Project/login'> try again</a>");
+			out.println("Invalid password <a href='http://localhost:8080/Database-Final-Project/login'> try again</a>");
 	} catch (Exception e) {
 		out.println("Try again!");
 	}

@@ -1,7 +1,7 @@
-package dao;
+package spring.dao;
 
 import java.util.List;
-import model.Post;
+import spring.model.Post;
 
 /**
  * Data Access Object (DAO) for Post

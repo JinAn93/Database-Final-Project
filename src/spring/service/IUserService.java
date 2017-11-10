@@ -1,8 +1,8 @@
-package service;
+package spring.service;
 
 import java.util.List;
 
-import model.User;
+import spring.model.User;
 
 public interface IUserService {
 
