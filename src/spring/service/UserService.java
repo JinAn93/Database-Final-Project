@@ -34,9 +34,9 @@ public class UserService implements IUserService {
 	}
 
 	public void updateUser(User user) {
-		User entity = dao.findById(user.getUser_id());
+		User entity = dao.findById(user.getUser_name());
 		if (entity != null) {
-			entity.setName(user.getName());
+			entity.setFirst_name(user.getFirst_name());
 			entity.setEmail(user.getEmail());
 			entity.setPassword(dao.hashPassword(user.getPassword()));
 		}
@@ -50,10 +50,10 @@ public class UserService implements IUserService {
 		return dao.findAllUsers();
 	}
 
-	public boolean isUserIdUnique(String user_id) {
+	public boolean isUserIdUnique(String user_name) {
 		List<User> allUsers = findAllUsers();
 		for (User user : allUsers) {
-			if (user.getUser_id().equals(user_id))
+			if (user.getUser_name().equals(user_name))
 				return false;
 		}
 		return true;

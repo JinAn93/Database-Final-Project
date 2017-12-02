@@ -71,7 +71,7 @@ body {
 			<div class="container">
 				<form class="form-signin" action="validate" method="get">
 
-					<h2 class="form-signin-heading">Dashboard Project</h2>
+					<h2 class="form-signin-heading">Final Database Project</h2>
 					<label for="userID" class="sr-only">User ID</label> 
 					<input type="text" name="userID" class="form-control"
 						placeholder="User ID" required autofocus> 

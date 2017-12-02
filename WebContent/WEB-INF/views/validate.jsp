@@ -22,8 +22,8 @@
 		
 		Class.forName("com.mysql.jdbc.Driver"); // Connect to MySQL database
 		Connection conn = DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/dashboard?"
-						+ "user=root&password=");
+				.getConnection("jdbc:mysql://vcm-1338.vm.duke.edu/db_final?"
+						+ "user=root&password=12345678");
 		PreparedStatement pst = conn
 				.prepareStatement("Select * from users  where user_id=? and password=?");
 		pst.setString(1, user_id);
