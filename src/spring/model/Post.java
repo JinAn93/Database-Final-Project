@@ -14,22 +14,20 @@ import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "POSTS")
+@Table(name = "POST")
 public class Post {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int post_id;
 
 	@NotNull
-	@Size(min = 1, max = 100)
-	@Column(name = "TITLE", nullable = false)
-	private String title;
+	@Column(name = "USER_NAME", nullable = false)
+	private String user_name;
 
 	@NotNull
-	@Size(min = 1, max = 150)
-	@Column(name = "CONTENTS", nullable = false)
-	private String contents;
+	@Column(name = "COMPANY_ID", nullable = false)
+	private int company_id;
 
 	@NotNull
 	@Size(min = 3, max = 30)
@@ -47,44 +45,96 @@ public class Post {
 		post_date = new LocalDate().now();
 	}
 	
-	public String getTitle() {
-		return title;
+	@Size(min = 0, max = 5)
+	@Column(name = "COMPANY_RATING")
+	private int company_rating;
+	
+	@Column(name = "INTERVIEW_RESULT")
+	private String interview_result;
+	
+	@Size(max = 255)
+	@Column(name = "CONTENT")
+	private String content;
+	
+	@NotNull
+	@Column(name = "INTERVIEW_YEAR")
+	private int interview_year;
+	
+	@NotNull
+	@Column(name = "INTERVIEW_SEASON")
+	private String interview_season;
+	
+	public int getPost_id() {
+		return post_id;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	
+	public void setPost_id(int post_id) {
+		this.post_id = post_id;
 	}
-
-	public String getContents() {
-		return contents;
+	
+	public String getUser_name() {
+		return user_name;
 	}
-
-	public void setContents(String contents) {
-		this.contents = contents;
+	
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
-
-	public String getUser_id() {
-		return user_id;
+	
+	public int getCompany_id() {
+		return company_id;
 	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	
+	public void setCompany_id(int company_id) {
+		this.company_id = company_id;
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
+	
 	public LocalDate getPost_date() {
 		return post_date;
 	}
-
+	
 	public void setPost_date(LocalDate post_date) {
 		this.post_date = post_date;
 	}
-
+	
+	public int getCompany_rating() {
+		return company_rating;
+	}
+	
+	public void setCompany_rating(int company_rating) {
+		this.company_rating = company_rating;
+	}
+	
+	public String getInterview_result() {
+		return interview_result;
+	}
+	
+	public void setInterview_result(String interview_result) {
+		this.interview_result = interview_result;
+	}
+	
+	public String getContent() {
+		return content;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	public int getInterview_year() {
+		return interview_year;
+	}
+	
+	public void setInterview_year (int interview_year) {
+		this.interview_year = interview_year;
+	}
+	
+	public String getInterview_season() {
+		return interview_season;
+	}
+	
+	public void setInterview_season(String interview_season) {
+		this.interview_season = interview_season;
+	}
+	
 }
+
