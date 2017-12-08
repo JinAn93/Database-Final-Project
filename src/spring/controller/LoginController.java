@@ -20,7 +20,7 @@ import spring.service.IUserService;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("user_id")
+@SessionAttributes("user_name")
 public class LoginController {
 
 	@Autowired
@@ -31,14 +31,14 @@ public class LoginController {
 
 	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
 	public String loginPage(ModelMap model) {
-		if (model.containsAttribute("user_id"))
+		if (model.containsAttribute("user_name"))
 			return "redirect:/dashboard";
 		return "loginPage";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
-		if (model.containsAttribute("user_id"))
+		if (model.containsAttribute("user_name"))
 			return "logout";
 		return "redirect:/login";
 	}
@@ -92,18 +92,18 @@ public class LoginController {
 
 	}
 
-	@RequestMapping(value = { "/edit-{user_id}-user" }, method = RequestMethod.GET)
-	public String editUser(@PathVariable String user_id, ModelMap model) {
-		if (model.containsAttribute("user_id")) {
-			model.addAttribute("user", userService.findById(user_id));
+	@RequestMapping(value = { "/edit-{user_name}-user" }, method = RequestMethod.GET)
+	public String editUser(@PathVariable String user_name, ModelMap model) {
+		if (model.containsAttribute("user_name")) {
+			model.addAttribute("user", userService.findById(user_name));
 			model.addAttribute("edit", true);
 			return "registration";
 		}
 		return "redirect:/login";
 	}
 
-	@RequestMapping(value = { "/edit-{user_id}-user" }, method = RequestMethod.POST)
-	public String updateUser(@Valid User user, BindingResult result, ModelMap model, @PathVariable String user_id) {
+	@RequestMapping(value = { "/edit-{user_name}-user" }, method = RequestMethod.POST)
+	public String updateUser(@Valid User user, BindingResult result, ModelMap model, @PathVariable String user_name) {
 		if (result.hasErrors()) {
 			return "registration";
 		}
