@@ -76,7 +76,7 @@
               <a href="login.html">Login Page</a>
             </li>
             <li>
-              <a href="register.html">Registration Page</a>
+              <a href="registration">Registration Page</a>
             </li>
             <li>
               <a href="forgot-password.html">Forgot Password Page</a>

@@ -74,9 +74,14 @@ h1 {
 	<form:form method="POST" modelAttribute="user">
 		<table class="userDetails" align="center">
 			<tr>
-				<td><label for="name">Name: </label></td>
-				<td><form:input path="name" id="name" /></td>
-				<td><form:errors path="name" cssClass="error" /></td>
+				<td><label for="first_name">First Name: </label></td>
+				<td><form:input path="first_name" id="first_name" /></td>
+				<td><form:errors path="first_name" cssClass="error" /></td>
+			</tr>
+			<tr>
+				<td><label for="last_name">Last Name: </label></td>
+				<td><form:input path="last_name" id="last_name" /></td>
+				<td><form:errors path="last_name" cssClass="error" /></td>
 			</tr>
 
 			<tr>
@@ -86,16 +91,16 @@ h1 {
 			</tr>
 
 			<tr>
-				<td><label for="user_id">User ID: </label></td>
+				<td><label for="user_name">User ID: </label></td>
 				<c:choose>
 					<c:when test="${edit}">
-						<td><form:input path="user_id" id="user_id" readonly="true" /></td>
+						<td><form:input path="user_name" id="user_name" readonly="true" /></td>
 					</c:when>
 					<c:otherwise>
-						<td><form:input path="user_id" id="user_id" /></td>
+						<td><form:input path="user_name" id="user_name" /></td>
 					</c:otherwise>
 				</c:choose>				
-				<td><form:errors path="user_id" cssClass="error" /></td>
+				<td><form:errors path="user_name" cssClass="error" /></td>
 			</tr>
 
 			<tr>
