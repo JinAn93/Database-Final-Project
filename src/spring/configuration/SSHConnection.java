@@ -1,5 +1,7 @@
 package spring.configuration;
 
+import java.util.Properties;
+
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 
@@ -19,8 +21,11 @@ public class SSHConnection {
 	    JSch jsch = null;
 	
 	    jsch = new JSch();
+	    Properties config = new Properties();
+	    config.put("StrictHostKeyChecking", "no");
 	    sesion = jsch.getSession(SSH_USER, SSH_REMOTE_SERVER, SSH_REMOTE_PORT);
 	    sesion.setPassword("plelebro3e");
+	    sesion.setConfig(config);
 	    sesion.connect();
 	    sesion.setPortForwardingL(LOCAl_PORT, MYSQL_REMOTE_SERVER, REMOTE_PORT); 
 	}
