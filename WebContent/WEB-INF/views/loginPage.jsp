@@ -3,21 +3,26 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
+<%-- <spring:url value="/resources/jquery-1.11.1/" var="jquery" />
 <spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
 <spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
 <link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
 <link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
 <script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
+<script src="${bootstrapJS}/bootstrap.min.js"></script> --%>
 
+  <!-- Bootstrap core CSS-->
+  <spring:url value="/resources/vendor" var="vendor" />
+  <spring:url value="/resources/css" var="css" />
+  <spring:url value="/resources/js" var ="js" />
+  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="${vendor}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="${vendor}/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="${css}/sb-admin.css" rel="stylesheet">
 
-
-<!-- Latest compiled and minified JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-	crossorigin="anonymous"></script>
 <title>Login Page</title>
 </head>
 
