@@ -37,6 +37,13 @@ public class HibernateConfiguration {
 
 	@Bean
 	public DataSource dataSource() {
+		try {
+			SSHConnection ssh = new SSHConnection();
+		} catch (Throwable e) {
+			// TODO Auto-generated catch block
+			System.out.println("SSH Connection Error");
+		}
+		
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName(environment
 				.getRequiredProperty("jdbc.driverClassName"));
