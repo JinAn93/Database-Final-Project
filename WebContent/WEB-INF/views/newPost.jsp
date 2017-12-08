@@ -5,6 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -204,98 +205,156 @@
 			</ul>
 		</div>
 	</nav>
-	<form:form method="POST" modelAttribute="post"
-		onkeypress="return entercheck(event)">
-		<table class="postForm">
-			<tr>
-				<td height="50" width="150"><label for="user_name">User Name </label></td>
-				<td height="50" width="750"><form:input path="" id="user_name" /></td>
-				<td height="50" width="100"><form:errors path="user_name"
-						cssClass="error" /></td>
-			</tr>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">New Post</a></li>
+			</ol>
+			<div class="row">
+				<div class="col-12">
+					<h1>New Post</h1>
+					<form:form method="POST" modelAttribute="post"
+						onkeypress="return entercheck(event)">
+						<table class="postForm">
+							<tr>
+								<td height="50" width="150"><label for="user_name">User
+										Name </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="user_name" /></td>
+								<td height="50" width="100"><form:errors path="user_name"
+										cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="company_name">Company Name
-				</label></td>
-				<td height="50" width="750"><form:input path=""
-						id="company_name" /></td>
-				<td height="50" width="100"><form:errors path="company_name"
-						cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="50" width="150"><label for="company_name">Company
+										Name </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="company_name" /></td>
+								<td height="50" width="100"><form:errors
+										path="company_name" cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="company_rating">Company
-						Rating Rating </label></td>
-				<td height="50" width="750"><form:input path=""
-						id="company_rating" /></td>
-				<td height="50" width="100"><form:errors path="company_rating"
-						cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="50" width="150"><label for="company_rating">Company
+										Rating </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="company_rating" /></td>
+								<td height="50" width="100"><form:errors
+										path="company_rating" cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="interview_result">Interview
-						Result </label></td>
-				<td height="50" width="750"><form:input path=""
-						id="interview_result" /></td>
-				<td height="50" width="100"><form:errors
-						path="interview_result" cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="50" width="150"><label for="interview_result">Interview
+										Result </label></td>
+								<td height="50" width="750"><form:input style="width: 500px; height: 50px;" path=""
+										id="interview_result" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_result" cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="content">Content </label></td>
-				<td height="50" width="750"><form:input path="" id="content" /></td>
-				<td height="50" width="100"><form:errors path="content"
-						cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="100" width="150"><label for="content">Content
+								</label></td>
+								<td height="100" width="750"><form:input style="width: 500px; height: 400px;" path=""
+										id="content" /></td>
+								<td height="100" width="100"><form:errors path="content"
+										cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="interview_year">Interview
-						Year </label></td>
-				<td height="50" width="750"><form:input path=""
-						id="interview_year" /></td>
-				<td height="50" width="100"><form:errors path="interview_year"
-						cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="50" width="150"><label for="interview_year">Interview
+										Year </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="interview_year" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_year" cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="interview_season">Interview
-						Season </label></td>
-				<td height="50" width="750"><form:input path=""
-						id="interview_season" /></td>
-				<td height="50" width="100"><form:errors
-						path="interview_season" cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="50" width="150"><label for="interview_season">Interview
+										Season </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="interview_season" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_season" cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td height="50" width="150"><label for="interview_position">Interview
-						Position </label></td>
-				<td height="50" width="750"><form:input path=""
-						id="interview_position" /></td>
-				<td height="50" width="100"><form:errors
-						path="interview_position" cssClass="error" /></td>
-			</tr>
-		</table>
+							<tr>
+								<td height="50" width="150"><label for="interview_position">Interview
+										Position </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="interview_position" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_position" cssClass="error" /></td>
+							</tr>
+						</table>
 
-		<script>
-			function entercheck(e) {
-				if (e.keyCode == 13) {
-					document.ge.getElementById('contents').innerHTML += "<br />";
-					return false;
-				}
-				return true;
-			}
-		</script>
-		<c:choose>
-			<c:when test="${edit}">
-				<input type="submit" value="Edit" />
-			</c:when>
-			<c:otherwise>
-				<input type="submit" value="Create Post!" />
-			</c:otherwise>
-		</c:choose>
-	</form:form>
-	<br />
-	<br /> Go back to
-	<a href="dashboard">Dashboard</a>
+						<script>
+							function entercheck(e) {
+								if (e.keyCode == 13) {
+									document.ge.getElementById('contents').innerHTML += "<br />";
+									return false;
+								}
+								return true;
+							}
+						</script>
+						<c:choose>
+							<c:when test="${edit}">
+								<input type="submit" value="Edit" />
+							</c:when>
+							<c:otherwise>
+								<input type="submit" value="Create Post!" />
+							</c:otherwise>
+						</c:choose>
+					</form:form>
+				</div>
+			</div>
+		</div>
+		<!-- /.container-fluid-->
+		<!-- /.content-wrapper-->
+		<footer class="sticky-footer">
+			<div class="container">
+				<div class="text-center">
+					<small>Copyright © Your Website 2017</small>
+				</div>
+			</div>
+		</footer>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fa fa-angle-up"></i>
+		</a>
+		<!-- Logout Modal-->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Ready to
+							Leave?</h5>
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Select "Logout" below if you are
+						ready to end your current session.</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button"
+							data-dismiss="modal">Cancel</button>
+						<a class="btn btn-primary" href="login.html">Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin.min.js"></script>
+	</div>
 </body>
+
 </html>
