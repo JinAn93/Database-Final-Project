@@ -24,11 +24,8 @@ public class DashboardController {
 
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
-		if (model.containsAttribute("user_id")) {
-			model.addAttribute("posts", postService.findAllPosts());
-			return "dashboard";
-		}
-		return "redirect:/login";
+		// Add Login Logic (Spring security / Adding Cookies?) 
+		return "dashboard";
 	}
 
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)

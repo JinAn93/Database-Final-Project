@@ -28,11 +28,10 @@ public class PostService implements IPostService{
 	}
 
 	public void updatePost(Post post) {
-		Post entity = dao.findById(post.getId());
+		Post entity = dao.findById(post.getPost_id());
 		if(entity != null){
-			entity.setContents(post.getContents());
+			entity.setContent(post.getContent());
 			entity.setPost_date(post.getPost_date());
-			entity.setTitle(post.getTitle());
 		}		
 	}
 
