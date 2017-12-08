@@ -43,14 +43,14 @@ public class LoginController {
 		return "redirect:/login";
 	}
 
-	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("edit", false);
 		return "registration";
 	}
 
-	@RequestMapping(value = "/new", method = RequestMethod.POST)
+	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String saveUser(@Valid User user, BindingResult result, ModelMap model) {
 
 		if (result.hasErrors()) {

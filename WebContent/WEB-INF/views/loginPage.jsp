@@ -75,7 +75,7 @@ body {
 					<label for="userID" class="sr-only">User ID</label> 
 					<input type="text" name="userID" class="form-control"
 						placeholder="User ID" required autofocus> 
-						
+						<p></p>		
 					<label for="password" class="sr-only">Password</label> 
 					<input type="password" name="password" class="form-control" 
 						placeholder="Password" required>
@@ -83,7 +83,7 @@ body {
 					<input class="btn btn-lg btn-primary btn-block" name="btnLogin"
 						type="submit" value="login"> 
 						
-					<a href="new">Create New Account</a>
+					<a href="registration">Create New Account</a>
 
 				</form>
 			</div>
