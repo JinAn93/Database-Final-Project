@@ -14,7 +14,7 @@ import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "POST")
+@Table(name = "Post")
 public class Post {
 
 	@Id
@@ -27,7 +27,8 @@ public class Post {
 
 	@NotNull
 	@Column(name = "COMPANY_NAME", nullable = false)
-	private int company_name;
+	private String company_name;
+
 
 	@NotNull
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -79,11 +80,11 @@ public class Post {
 		this.user_name = user_name;
 	}
 
-	public int getCompany_name() {
+	public String getCompany_name() {
 		return company_name;
 	}
 
-	public void setCompany_name(int company_name) {
+	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
 	}
 
@@ -142,5 +143,6 @@ public class Post {
 	public void setInterview_position(String interview_position) {
 		this.interview_position = interview_position;
 	}
-
 }
+
+
