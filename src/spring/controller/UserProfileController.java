@@ -32,25 +32,10 @@ public class UserProfileController {
 //		}
 		
 		User user = userService.findById("root");	//some username		
-		//TODO check if user is null
-		System.out.println("UName: " + user.getUser_name());
-		System.out.println("FName: " + user.getFirst_name());
-		System.out.println("LName: " + user.getLast_name());
-		System.out.println("Pass: " + user.getPassword());
-		System.out.println("Email: " + user.getEmail());
-		System.out.println("Comp: " + user.getCurrent_company());
-		
 		List<Post> postsList = postService.findPostsByUserName("root");
-		System.out.println("PostsList: " + postsList);
-		for (Post post : postsList) {			
-			System.out.println("PostsList: " + post.getPost_id());
-			System.out.println("PostsList: " + post.getCompany_name());
-			System.out.println("PostsList: " + post.getUser_name());
-			System.out.println("PostsList: " + post.getContent());
-		}
-		
-		
-		model.addAttribute("test", user);		
+		//TODO check if user is null and postslist is null		
+		model.addAttribute("User", user);	
+		model.addAttribute("Posts", postsList);
 		return "profile";
 	}
 }
