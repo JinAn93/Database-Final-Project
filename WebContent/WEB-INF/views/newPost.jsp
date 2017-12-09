@@ -33,7 +33,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="index.html">Start Bootstrap</a>
+		<a class="navbar-brand" href="index.html">Recruit Monster</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"
@@ -214,7 +214,7 @@
 			<div class="row">
 				<div class="col-12">
 					<h1>New Post</h1>
-					<form:form method="POST" modelAttribute="post"
+					<form:form method="POST" modelAttribute="post" action="newPost"
 						onkeypress="return entercheck(event)">
 						<table class="postForm">
 							<tr>
@@ -348,12 +348,12 @@
 			</div>
 		</div>
 		<!-- Bootstrap core JavaScript-->
-		<script src="vendor/jquery/jquery.min.js"></script>
-		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="${vendor}/jquery/jquery.min.js"></script>
+		<script src="${vendor}/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<!-- Core plugin JavaScript-->
-		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="${vendor}/jquery-easing/jquery.easing.min.js"></script>
 		<!-- Custom scripts for all pages-->
-		<script src="js/sb-admin.min.js"></script>
+		<script src="${js}/sb-admin.min.js"></script>
 	</div>
 </body>
 
