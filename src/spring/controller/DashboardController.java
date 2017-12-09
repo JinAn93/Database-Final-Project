@@ -30,11 +30,8 @@ public class DashboardController {
 
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)
 	public String newPost(ModelMap model) {
-		if (model.containsAttribute("user_id")) {
-			model.addAttribute("post", new Post());
-			return "newPost";
-		}
-		return "redirect:/login";
+		model.addAttribute("post", new Post());
+		return "newPost";
 	}
 
 	@RequestMapping(value = "/newPost", method = RequestMethod.POST)
