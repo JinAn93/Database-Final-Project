@@ -51,6 +51,8 @@ public class LoginController {
 		return "registration";
 	}
 	
+
+	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registerUser(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
 
@@ -122,5 +124,10 @@ public class LoginController {
 	private FieldError createError(String errorProperty, String messageResourceBundle, String data) {
 		FieldError error = new FieldError("user", errorProperty, messageSource.getMessage(messageResourceBundle, new String[] { data }, Locale.getDefault()));
 		return error;
+	}
+	
+	@RequestMapping(value = "/forgotPassword", method = RequestMethod.GET)
+	public String newPassword(ModelMap model) {
+		return "forgotPassword";
 	}
 }
