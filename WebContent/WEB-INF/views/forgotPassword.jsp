@@ -1,14 +1,16 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Login</title>
+  <title>Reset Password</title>
 
   <!-- Bootstrap core CSS-->
   <spring:url value="/resources/vendor" var="vendor" />
@@ -26,28 +28,21 @@
 <body class="bg-dark">
   <div class="container">
     <div class="card card-login mx-auto mt-5">
-      <div class="card-header">Login</div>
+      <div class="card-header">Reset Password</div>
       <div class="card-body">
+        <div class="text-center mt-4 mb-5">
+          <h4>Forgot your password?</h4>
+          <p>Enter your email address and we will send you instructions on how to reset your password.</p>
+        </div>
         <form>
           <div class="form-group">
-            <label for="exampleInputEmail1">User Name</label>
-            <input class="form-control" id="exampleInputEmail1" type="username" aria-describedby="emailHelp" placeholder="Enter User Name">
+            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email address">
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <div class="form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember Password</label>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-block" href="dashboard">Login</a>
+          <a class="btn btn-primary btn-block" href="login">Reset Password</a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="registration">Register an Account</a>
-          <a class="d-block small" href="forgotPassword">Forgot Password?</a>
+          <a class="d-block small" href="login.html">Login Page</a>
         </div>
       </div>
     </div>
