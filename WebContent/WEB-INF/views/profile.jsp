@@ -252,12 +252,12 @@
 								<div class="profile card">
 									<div class="col-sm-12">
 										<div class="col-xs-12 col-sm-8">
-											<h2>Nicole Pearson</h2>
+											<h2>${User.first_name} ${User.last_name }</h2>
 											<p>
-												<strong>User Name: </strong> asdf25
+												<strong>User Name: </strong> ${User.user_name}
 											</p>
 											<p>
-												<strong>Email: </strong> email_tst@duke.edu
+												<strong>Email: </strong> ${User.email}
 											</p>
 											<p>
 												<strong>Current Company: </strong> Intel Corporation
@@ -297,7 +297,7 @@
 										
 			<!-- End Profile -->
 			
-          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+          <p></p>
           
           <!-- Example Notifications Card-->
           <div class="card mb-3">
