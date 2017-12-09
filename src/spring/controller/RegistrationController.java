@@ -6,42 +6,31 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.request.WebRequest;
 
 import spring.model.User;
 import spring.service.IUserService;
 
-@Controller
-@RequestMapping("/")
-@SessionAttributes("user_name")
-public class LoginController {
 
+public class RegistrationController {
+	
 	@Autowired
 	IUserService userService;
 	
 	@Autowired
 	MessageSource messageSource;
-
-	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
-	public String loginPage(ModelMap model) {
-		if (model.containsAttribute("user_name"))
-			return "redirect:/dashboard";
-		return "loginPage";
-	}
-
-	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(ModelMap model) {
-		if (model.containsAttribute("user_name"))
-			return "logout";
-		return "redirect:/login";
+	
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String showRegistrationForm(WebRequest request, ModelMap model) {
+		User user = new User();
+	    model.addAttribute("user", user);
+	    return "registration";
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
@@ -93,34 +82,9 @@ public class LoginController {
 
 	}
 	
-	@RequestMapping(value = { "/edit-{user_name}-user" }, method = RequestMethod.GET)
-	public String editUser(@PathVariable String user_name, ModelMap model) {
-		if (model.containsAttribute("user_name")) {
-			model.addAttribute("user", userService.findById(user_name));
-			model.addAttribute("edit", true);
-			return "registration";
-		}
-		return "redirect:/login";
-	}
-
-	@RequestMapping(value = { "/edit-{user_name}-user" }, method = RequestMethod.POST)
-	public String updateUser(@Valid User user, BindingResult result, ModelMap model, @PathVariable String user_name) {
-		if (result.hasErrors()) {
-			return "registration";
-		}
-
-		userService.updateUser(user);
-		model.addAttribute("success", "Your account has been successfully modified");
-		return "success";
-	}
-
-	@RequestMapping(value = "/validate", method = RequestMethod.GET)
-	public String loginAttempt(ModelMap model) {
-		return "validate";
-	}
-	
 	private FieldError createError(String errorProperty, String messageResourceBundle, String data) {
 		FieldError error = new FieldError("user", errorProperty, messageSource.getMessage(messageResourceBundle, new String[] { data }, Locale.getDefault()));
 		return error;
 	}
 }
+

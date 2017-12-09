@@ -6,35 +6,68 @@
 <html>
 
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
+<%-- <spring:url value="/resources/jquery-1.11.1/" var="jquery" />
 <spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
 <spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
 <link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
-<script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" /> --%>
+
+ <!-- Bootstrap core CSS-->
+  <spring:url value="/resources/vendor" var="vendor" />
+  <spring:url value="/resources/css" var="css" />
+  <spring:url value="/resources/js" var ="js" />
+  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="${vendor}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="${vendor}/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="${css}/sb-admin.css" rel="stylesheet">
+
 <title>Account Form</title>
 </head>
 
 <style>
-.error {
-	color: #ff0000;
-}
-
 body {
-	margin: auto;
-	text-align: center;
-	padding: 70px;
-	font-family: Helvetica;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
 }
 
-input {
-	font-family: Helvetica;
+.form-signup {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
 }
 
-h1 {
-	text-align: center;
+.form-signup .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signup .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signup .form-control:focus {
+	z-index: 2;
+}
+
+.form-signup input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-signup input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 </style>
 
@@ -43,7 +76,7 @@ h1 {
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
-			<!-- 	<button type="button" class="navbar-toggle collapsed"
+			 	<!-- <button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
 					aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span> <span
@@ -51,7 +84,7 @@ h1 {
 						class="icon-bar"></span>
 				</button> -->
 				<p></p>
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="login">Home</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
@@ -61,7 +94,58 @@ h1 {
 		</div>
 	</nav>
 	<!-- navbar end -->
-	<div class="Instruction">
+
+
+
+<%-- <td><label for="first_name">First Name: </label></td>
+<td><form:input path="first_name" id="first_name" /></td>
+<td><form:errors path="first_name" cssClass="error" /></td> --%>
+
+<c:choose>
+		<c:when test="${loggedinID == null}">
+			<div class="container">
+				<form class="form-signup" action="validate" method="get">
+					<label for="first_name"> First Name</label> 
+					<input type="text" name="first_name" class="form-control"
+						placeholder="First Name" required autofocus> 
+					<form:errors path="first_name" cssClass="error" />
+					<p></p>		
+					<label for="last_name">Last Name</label> 
+					<input type="text" name="last_name" class="form-control"
+						placeholder="Last Name" required autofocus> 
+					<p></p>	
+					<label for="userID">User ID</label> 
+					<input type="text" name="userID" class="form-control"
+						placeholder="User ID" required autofocus> 
+					<p></p>
+					<label for="email">Email</label> 
+					<input type="text" name="email" class="form-control"
+						placeholder="Email" required autofocus> 
+					<p></p>
+							
+					<label for="password">Password</label> 
+					<input type="password" name="password" class="form-control" 
+						placeholder="Password" required>
+					<p></p>	
+					<label for="confirmpassword">Confirm Password</label> 
+					<input type="confirmpassword" name="confirmpassword" class="form-control" 
+						placeholder="Confirm Password" required>
+					<p></p>
+					<input class="btn btn-lg btn-primary btn-block" name="btnLogin"
+						type="submit" value="Sign Up"> 
+				</form>
+			</div>
+		</c:when>
+		<c:otherwise>
+			<%
+				response.sendRedirect("http://localhost:8080/Database-Final-Project/dashboard");
+			%>
+		</c:otherwise>
+	</c:choose>
+
+
+
+<%-- 	<div class="Instruction">
 		<c:choose>
 			<c:when test="${edit}">
 				<h1>Modify Your Account</h1>
@@ -124,7 +208,10 @@ h1 {
 		</table>
 	</form:form>
 	<br />
-	<br /> 
+	<br />  --%>
+	
+	<p></p>
+	<p></p>
 	Go back to <a href="login">Login Page</a>
 </body>
 </html>

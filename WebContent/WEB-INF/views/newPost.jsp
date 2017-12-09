@@ -3,129 +3,358 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<html>
+
+<html lang="en">
 
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
-<spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
-<spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
-<script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Post Creation</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>SB Admin - Start Bootstrap Template</title>
+<!-- Bootstrap core CSS-->
+<spring:url value="/resources/vendor" var="vendor" />
+<spring:url value="/resources/css" var="css" />
+<spring:url value="/resources/js" var="js" />
+<link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="${vendor}/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="${vendor}/datatables/dataTables.bootstrap4.css"
+	rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="${css}/sb-admin.css" rel="stylesheet">
 </head>
 
-<style>
-.error {
-	color: #ff0000;
-}
-
-body {
-	margin: auto;
-	text-align: center;
-	padding: 70px;
-	font-family: Helvetica;
-}
-
-input {
-	font-family: Helvetica;
-}
-
-h1 {
-	text-align: center;
-}
-
-tr {
-	border: 1px solid black;
-}
-
-.postForm {
-	margin-left: 300px;
-	margin-right: 300px;
-	width: 1000px; 
-	height: 500px;
-	text-align: center;
-}
-
-#title{
-	height: 40px;
-	width: 750px;
-	padding: 30px;
-}
-
-#contents{
-	height: 400px;
-	width: 750px;
-	padding: 30px;
-}
-
-</style>
-
-
-<body>
-	
-	<!-- navbar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Dashboard</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="<c:url value='/dashboard' />">Home</a></li>
-				</ul>
-			</div>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+	<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+		id="mainNav">
+		<a class="navbar-brand" href="index.html">Start Bootstrap</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button"
+			data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Dashboard"><a class="nav-link" href="index.html"> <i
+						class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Dashboard</span>
+				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Charts"><a class="nav-link" href="charts.html"> <i
+						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">Charts</span>
+				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Tables"><a class="nav-link" href="tables.html"> <i
+						class="fa fa-fw fa-table"></i> <span class="nav-link-text">Tables</span>
+				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Components"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseComponents" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">Components</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseComponents">
+						<li><a href="navbar.html">Navbar</a></li>
+						<li><a href="cards.html">Cards</a></li>
+					</ul></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Example Pages"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseExamplePages" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-file"></i> <span class="nav-link-text">Example
+							Pages</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseExamplePages">
+						<li><a href="login.html">Login Page</a></li>
+						<li><a href="register.html">Registration Page</a></li>
+						<li><a href="forgot-password.html">Forgot Password Page</a></li>
+						<li><a href="blank.html">Blank Page</a></li>
+					</ul></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Menu Levels"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseMulti" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-sitemap"></i> <span class="nav-link-text">Menu
+							Levels</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseMulti">
+						<li><a href="#">Second Level Item</a></li>
+						<li><a href="#">Second Level Item</a></li>
+						<li><a href="#">Second Level Item</a></li>
+						<li><a class="nav-link-collapse collapsed"
+							data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+							<ul class="sidenav-third-level collapse" id="collapseMulti2">
+								<li><a href="#">Third Level Item</a></li>
+								<li><a href="#">Third Level Item</a></li>
+								<li><a href="#">Third Level Item</a></li>
+							</ul></li>
+					</ul></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Link"><a class="nav-link" href="#"> <i
+						class="fa fa-fw fa-link"></i> <span class="nav-link-text">Link</span>
+				</a></li>
+			</ul>
+			<ul class="navbar-nav sidenav-toggler">
+				<li class="nav-item"><a class="nav-link text-center"
+					id="sidenavToggler"> <i class="fa fa-fw fa-angle-left"></i>
+				</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown"
+					href="#" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <i class="fa fa-fw fa-envelope"></i> <span
+						class="d-lg-none">Messages <span
+							class="badge badge-pill badge-primary">12 New</span>
+					</span> <span class="indicator text-primary d-none d-lg-block"> <i
+							class="fa fa-fw fa-circle"></i>
+					</span>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="messagesDropdown">
+						<h6 class="dropdown-header">New Messages:</h6>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <strong>David
+								Miller</strong> <span class="small float-right text-muted">11:21
+								AM</span>
+							<div class="dropdown-message small">Hey there! This new
+								version of SB Admin is pretty awesome! These messages clip off
+								when they reach the end of the box so they don't overflow over
+								to the sides!</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <strong>Jane Smith</strong>
+							<span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">I was wondering if you
+								could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <strong>John Doe</strong> <span
+							class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">I've sent the final
+								files over to you for review. When you're able to sign off of
+								them let me know and we can discuss distribution.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item small" href="#">View all messages</a>
+					</div></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown"
+					href="#" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <i class="fa fa-fw fa-bell"></i> <span
+						class="d-lg-none">Alerts <span
+							class="badge badge-pill badge-warning">6 New</span>
+					</span> <span class="indicator text-warning d-none d-lg-block"> <i
+							class="fa fa-fw fa-circle"></i>
+					</span>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="alertsDropdown">
+						<h6 class="dropdown-header">New Alerts:</h6>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <span class="text-success">
+								<strong> <i class="fa fa-long-arrow-up fa-fw"></i>Status
+									Update
+							</strong>
+						</span> <span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">This is an automated
+								server response message. All systems are online.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <span class="text-danger">
+								<strong> <i class="fa fa-long-arrow-down fa-fw"></i>Status
+									Update
+							</strong>
+						</span> <span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">This is an automated
+								server response message. All systems are online.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <span class="text-success">
+								<strong> <i class="fa fa-long-arrow-up fa-fw"></i>Status
+									Update
+							</strong>
+						</span> <span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">This is an automated
+								server response message. All systems are online.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item small" href="#">View all alerts</a>
+					</div></li>
+				<li class="nav-item">
+					<form class="form-inline my-2 my-lg-0 mr-lg-2">
+						<div class="input-group">
+							<input class="form-control" type="text"
+								placeholder="Search for..."> <span
+								class="input-group-btn">
+								<button class="btn btn-primary" type="button">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</form>
+				</li>
+				<li class="nav-item"><a class="nav-link" data-toggle="modal"
+					data-target="#exampleModal"> <i class="fa fa-fw fa-sign-out"></i>Logout
+				</a></li>
+			</ul>
 		</div>
 	</nav>
-	<!-- navbar end -->
-	<form:form method="POST" modelAttribute="post" onkeypress="return entercheck(event)">
-		<table class="postForm" >
-			<tr>
-				<td height="50" width="150"><label for="title">Title: </label></td>
-				<td height="50" width="750"><form:input path="title" id="title"/></td>
-				<td height="50" width="100"><form:errors path="title" cssClass="error" /></td>
-			</tr>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">New Post</a></li>
+			</ol>
+			<div class="row">
+				<div class="col-12">
+					<h1>New Post</h1>
+					<form:form method="POST" modelAttribute="post"
+						onkeypress="return entercheck(event)">
+						<table class="postForm">
+							<tr>
+								<td height="50" width="150"><label for="user_name">User
+										Name </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="user_name" /></td>
+								<td height="50" width="100"><form:errors path="user_name"
+										cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td><label for="contents">Contents: </label></td>
-				<td><form:textarea rows="60" cols="200" path="contents" id="contents"/></td>
-				<td><form:errors path="contents" cssClass="error" /></td>
-			</tr>
+							<tr>
+								<td height="50" width="150"><label for="company_name">Company
+										Name </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="company_name" /></td>
+								<td height="50" width="100"><form:errors
+										path="company_name" cssClass="error" /></td>
+							</tr>
 
-			<tr>
-				<td><form:input path="user_id" type="hidden" value="<%=session.getAttribute(\"user_id\")%>" /></td>
-			</tr>
-		</table>
+							<tr>
+								<td height="50" width="150"><label for="company_rating">Company
+										Rating </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="company_rating" /></td>
+								<td height="50" width="100"><form:errors
+										path="company_rating" cssClass="error" /></td>
+							</tr>
 
-		<script>
-			function entercheck(e){
-				if(e.keyCode == 13){
-					document.ge.getElementById('contents').innerHTML+="<br />";
-					return false;
-				}
-				return true;
-			}
-		</script>
-		<c:choose>
-			<c:when test="${edit}">
-				<input type="submit" value="Edit" />
-			</c:when>
-			<c:otherwise>
-				<input type="submit" value="Create Post!" />
-			</c:otherwise>
-		</c:choose>
-	</form:form>
-	<br />
-	<br /> Go back to
-	<a href="dashboard">Dashboard</a>
+							<tr>
+								<td height="50" width="150"><label for="interview_result">Interview
+										Result </label></td>
+								<td height="50" width="750"><form:input style="width: 500px; height: 50px;" path=""
+										id="interview_result" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_result" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="100" width="150"><label for="content">Content
+								</label></td>
+								<td height="100" width="750"><form:input style="width: 500px; height: 400px;" path=""
+										id="content" /></td>
+								<td height="100" width="100"><form:errors path="content"
+										cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_year">Interview
+										Year </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="interview_year" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_year" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_season">Interview
+										Season </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="interview_season" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_season" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_position">Interview
+										Position </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path=""
+										id="interview_position" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_position" cssClass="error" /></td>
+							</tr>
+						</table>
+
+						<script>
+							function entercheck(e) {
+								if (e.keyCode == 13) {
+									document.ge.getElementById('contents').innerHTML += "<br />";
+									return false;
+								}
+								return true;
+							}
+						</script>
+						<c:choose>
+							<c:when test="${edit}">
+								<input type="submit" value="Edit" />
+							</c:when>
+							<c:otherwise>
+								<input type="submit" value="Create Post!" />
+							</c:otherwise>
+						</c:choose>
+					</form:form>
+				</div>
+			</div>
+		</div>
+		<!-- /.container-fluid-->
+		<!-- /.content-wrapper-->
+		<footer class="sticky-footer">
+			<div class="container">
+				<div class="text-center">
+					<small>Copyright © Your Website 2017</small>
+				</div>
+			</div>
+		</footer>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fa fa-angle-up"></i>
+		</a>
+		<!-- Logout Modal-->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Ready to
+							Leave?</h5>
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Select "Logout" below if you are
+						ready to end your current session.</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button"
+							data-dismiss="modal">Cancel</button>
+						<a class="btn btn-primary" href="login.html">Logout</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Bootstrap core JavaScript-->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Custom scripts for all pages-->
+		<script src="js/sb-admin.min.js"></script>
+	</div>
 </body>
+
 </html>
