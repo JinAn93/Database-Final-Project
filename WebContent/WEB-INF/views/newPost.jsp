@@ -220,7 +220,7 @@
 							<tr>
 								<td height="50" width="150"><label for="user_name">User
 										Name </label></td>
-								<td height="50" width="750"><form:input style="width: 500px" path=""
+								<td height="50" width="750"><form:input style="width: 500px" path="user_name"
 										id="user_name" /></td>
 								<td height="50" width="100"><form:errors path="user_name"
 										cssClass="error" /></td>
@@ -229,7 +229,7 @@
 							<tr>
 								<td height="50" width="150"><label for="company_name">Company
 										Name </label></td>
-								<td height="50" width="750"><form:input style="width: 500px" path=""
+								<td height="50" width="750"><form:input style="width: 500px" path="company_name"
 										id="company_name" /></td>
 								<td height="50" width="100"><form:errors
 										path="company_name" cssClass="error" /></td>
@@ -238,7 +238,7 @@
 							<tr>
 								<td height="50" width="150"><label for="company_rating">Company
 										Rating </label></td>
-								<td height="50" width="750"><form:input style="width: 500px" path=""
+								<td height="50" width="750"><form:input style="width: 500px" path="company_rating"
 										id="company_rating" /></td>
 								<td height="50" width="100"><form:errors
 										path="company_rating" cssClass="error" /></td>
@@ -247,7 +247,7 @@
 							<tr>
 								<td height="50" width="150"><label for="interview_result">Interview
 										Result </label></td>
-								<td height="50" width="750"><form:input style="width: 500px; height: 50px;" path=""
+								<td height="50" width="750"><form:input style="width: 500px; height: 50px;" path="interview_result"
 										id="interview_result" /></td>
 								<td height="50" width="100"><form:errors
 										path="interview_result" cssClass="error" /></td>
@@ -256,7 +256,7 @@
 							<tr>
 								<td height="100" width="150"><label for="content">Content
 								</label></td>
-								<td height="100" width="750"><form:input style="width: 500px; height: 400px;" path=""
+								<td height="100" width="750"><form:input style="width: 500px; height: 400px;" path="content"
 										id="content" /></td>
 								<td height="100" width="100"><form:errors path="content"
 										cssClass="error" /></td>
@@ -265,7 +265,7 @@
 							<tr>
 								<td height="50" width="150"><label for="interview_year">Interview
 										Year </label></td>
-								<td height="50" width="750"><form:input style="width: 500px" path=""
+								<td height="50" width="750"><form:input style="width: 500px" path="interview_year"
 										id="interview_year" /></td>
 								<td height="50" width="100"><form:errors
 										path="interview_year" cssClass="error" /></td>
@@ -274,7 +274,7 @@
 							<tr>
 								<td height="50" width="150"><label for="interview_season">Interview
 										Season </label></td>
-								<td height="50" width="750"><form:input style="width: 500px" path=""
+								<td height="50" width="750"><form:input style="width: 500px" path="interview_season"
 										id="interview_season" /></td>
 								<td height="50" width="100"><form:errors
 										path="interview_season" cssClass="error" /></td>
@@ -283,7 +283,7 @@
 							<tr>
 								<td height="50" width="150"><label for="interview_position">Interview
 										Position </label></td>
-								<td height="50" width="750"><form:input style="width: 500px" path=""
+								<td height="50" width="750"><form:input style="width: 500px" path="interview_position"
 										id="interview_position" /></td>
 								<td height="50" width="100"><form:errors
 										path="interview_position" cssClass="error" /></td>

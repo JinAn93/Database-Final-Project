@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import spring.model.Company;
 import spring.model.Post;
+import spring.service.ICompanyService;
 import spring.service.IPostService;
 
 @Controller
@@ -21,6 +23,9 @@ public class DashboardController {
 
 	@Autowired
 	IPostService postService;
+	
+	@Autowired
+	ICompanyService companyService;
 
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
@@ -40,6 +45,10 @@ public class DashboardController {
 			return "newPost";
 		}
 		
+		// if company exists in the database
+		
+		if (companyService.findById(post.getCompany_name()) == null)
+			companyService.saveCompany(new Company().setCompany_name(post.getCompany_name()));
 		postService.savePost(post);
 		model.addAttribute("success", "New Post has been saved!");
 		return "success";
