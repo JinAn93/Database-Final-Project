@@ -84,4 +84,8 @@ public class User {
 	public void setCurrent_company(String current_company) {
 		this.current_company = current_company;
 	}
+
+	public Object getMatchingPassword() {
+		return password;
+	}
 }

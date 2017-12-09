@@ -79,7 +79,7 @@
               <a href="registration">Registration Page</a>
             </li>
             <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
+              <a href="forgotPassword">Forgot Password Page</a>
             </li>
             <li>
               <a href="blank.html">Blank Page</a>
