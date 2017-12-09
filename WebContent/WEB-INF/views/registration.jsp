@@ -28,23 +28,46 @@
 </head>
 
 <style>
-.error {
-	color: #ff0000;
-}
-
 body {
-	margin: auto;
-	text-align: center;
-	padding: 70px;
-	font-family: Helvetica;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #eee;
 }
 
-input {
-	font-family: Helvetica;
+.form-signup {
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
 }
 
-h1 {
-	text-align: center;
+.form-signup .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signup .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+
+.form-signup .form-control:focus {
+	z-index: 2;
+}
+
+.form-signup input[type="email"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+.form-signup input[type="password"] {
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 </style>
 
@@ -81,6 +104,7 @@ h1 {
 <c:choose>
 		<c:when test="${loggedinID == null}">
 			<div class="container">
+				<form class="form-signup" action="validate" method="get">
 					<label for="first_name"> First Name</label> 
 					<input type="text" name="first_name" class="form-control"
 						placeholder="First Name" required autofocus> 
@@ -93,7 +117,12 @@ h1 {
 					<label for="userID">User ID</label> 
 					<input type="text" name="userID" class="form-control"
 						placeholder="User ID" required autofocus> 
-					<p></p>		
+					<p></p>
+					<label for="email">Email</label> 
+					<input type="text" name="email" class="form-control"
+						placeholder="Email" required autofocus> 
+					<p></p>
+							
 					<label for="password">Password</label> 
 					<input type="password" name="password" class="form-control" 
 						placeholder="Password" required>
@@ -104,8 +133,6 @@ h1 {
 					<p></p>
 					<input class="btn btn-lg btn-primary btn-block" name="btnLogin"
 						type="submit" value="Sign Up"> 
-						
-
 				</form>
 			</div>
 		</c:when>

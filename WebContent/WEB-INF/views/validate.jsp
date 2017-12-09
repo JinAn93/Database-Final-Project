@@ -1,9 +1,3 @@
-<%--
-	Document	: validate
-	Created on	: June 20th, 2016
-	Author		: Seung Jin An
---%>
-
 <%@ page import="java.sql.*"%>
 <%@ page import="java.security.MessageDigest" %>
 <%
