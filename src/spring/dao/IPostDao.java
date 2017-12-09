@@ -32,6 +32,14 @@ public interface IPostDao {
 	 * @return
 	 */
 	List<Post> findAllPosts();
+	
+	
+	/**
+	 * Find all Posts from a particular user name in the database
+	 * @param userName
+	 * @return
+	 */
+	List<Post> findPostsByUserName(String userName);
 
 	/**
 	 * Deletes Post by looking up the id from database
