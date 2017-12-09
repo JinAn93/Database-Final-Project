@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.context.request.WebRequest;
 
 import spring.model.User;
 import spring.service.IUserService;
@@ -42,16 +43,16 @@ public class LoginController {
 			return "logout";
 		return "redirect:/login";
 	}
-
+	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("edit", false);
 		return "registration";
 	}
-
+	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String saveUser(@Valid User user, BindingResult result, ModelMap model) {
+	public String registerUser(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
 
 		if (result.hasErrors()) {
 			return "registration";
@@ -91,7 +92,7 @@ public class LoginController {
 		}
 
 	}
-
+	
 	@RequestMapping(value = { "/edit-{user_name}-user" }, method = RequestMethod.GET)
 	public String editUser(@PathVariable String user_name, ModelMap model) {
 		if (model.containsAttribute("user_name")) {

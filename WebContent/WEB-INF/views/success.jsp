@@ -5,14 +5,27 @@
 
 <html>
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
+<%-- <spring:url value="/resources/jquery-1.11.1/" var="jquery" />
 <spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
 <spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
 <link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
 <link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
 <script src="${jquery}/jquery-1.11.1.min.js"></script>
 <script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> --%>
+
+  <!-- Bootstrap core CSS-->
+  <spring:url value="/resources/vendor" var="vendor" />
+  <spring:url value="/resources/css" var="css" />
+  <spring:url value="/resources/js" var ="js" />
+  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="${vendor}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="${vendor}/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="${css}/sb-admin.css" rel="stylesheet">
+
 <title>Success</title>
 </head>
 

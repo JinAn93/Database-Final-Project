@@ -1,4 +1,4 @@
-package spring.controller;
+package spring.service;
 //package org.hibernate.validator;
 
 import java.lang.annotation.Documented;

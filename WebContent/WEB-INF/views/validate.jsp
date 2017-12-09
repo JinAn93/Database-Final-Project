@@ -3,7 +3,7 @@
 <%
 	try {
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
-		String user_id = request.getParameter("userID");
+		String user_name = request.getParameter("user_name");
 		String password = request.getParameter("password");
 		
 		md.update(password.getBytes());
@@ -20,11 +20,11 @@
 						+ "user=root&password=12345678");
 		PreparedStatement pst = conn
 				.prepareStatement("Select * from users  where user_id=? and password=?");
-		pst.setString(1, user_id);
+		pst.setString(1, user_name);
 		pst.setString(2, sb.toString());
 		ResultSet rs = pst.executeQuery();
 		if (rs.next()){
-			session.setAttribute("user_id", user_id);
+			session.setAttribute("user_name", user_name);
 			response.sendRedirect("http://localhost:8080/Database-Final-Project/dashboard");
 		}
 		else

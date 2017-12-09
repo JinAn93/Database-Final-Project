@@ -9,13 +9,13 @@ import org.springframework.context.MessageSource;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.WebRequest;
 
 import spring.model.User;
 import spring.service.IUserService;
-
 
 
 public class RegistrationController {
@@ -28,9 +28,16 @@ public class RegistrationController {
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String showRegistrationForm(WebRequest request, ModelMap model) {
+		User user = new User();
+	    model.addAttribute("user", user);
+	    return "registration";
+	}
+	
+	@RequestMapping(value = "/registration", method = RequestMethod.GET)
+	public String newUser(ModelMap model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("edit", false);
-	    return "registration";
+		return "registration";
 	}
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -74,7 +81,6 @@ public class RegistrationController {
 		}
 
 	}
-	
 	
 	private FieldError createError(String errorProperty, String messageResourceBundle, String data) {
 		FieldError error = new FieldError("user", errorProperty, messageSource.getMessage(messageResourceBundle, new String[] { data }, Locale.getDefault()));

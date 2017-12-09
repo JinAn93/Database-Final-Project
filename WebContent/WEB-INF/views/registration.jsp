@@ -84,7 +84,7 @@ body {
 						class="icon-bar"></span>
 				</button> -->
 				<p></p>
-				<a class="navbar-brand" href="#">Home</a>
+				<a class="navbar-brand" href="login">Home</a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
