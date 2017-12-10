@@ -8,6 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Type;
+import org.joda.time.LocalDate;
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="Post_Feedback")
 public class PostFeedback {
@@ -30,6 +34,17 @@ public class PostFeedback {
 	@NotNull
 	@Column(name = "COMMENT", nullable = false)
 	private String comment;
+	
+	@NotNull
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "POST_DATE", nullable = false)
+	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+	private LocalDate post_date;
+
+	@SuppressWarnings("static-access")
+	public PostFeedback() {
+		post_date = new LocalDate().now();
+	}
 	
 	public Integer getPost_feedback_id() {
 		return post_feedback_id;
@@ -73,6 +88,15 @@ public class PostFeedback {
 	
 	public PostFeedback setComment(String comment) {
 		this.comment = comment;
+		return this;
+	}
+	
+	public LocalDate getPost_date() {
+		return post_date;
+	}
+	
+	public PostFeedback setPost_date(LocalDate post_date) {
+		this.post_date = post_date;
 		return this;
 	}
 }
