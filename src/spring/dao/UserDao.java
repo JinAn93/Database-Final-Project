@@ -36,6 +36,7 @@ public class UserDao extends AbstractDao<String, User> implements IUserDao {
 	public String hashPassword (String password){
 		MessageDigest md;
 		try {
+			System.out.println(password);
 			md = MessageDigest.getInstance("SHA-256");
 			md.update(password.getBytes());
 			byte[] byteData = md.digest();
@@ -44,6 +45,7 @@ public class UserDao extends AbstractDao<String, User> implements IUserDao {
 			for (int i = 0; i < byteData.length; i++) {
 				sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
 			}
+			System.out.println(sb.toString());
 			return sb.toString();
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
@@ -57,10 +59,10 @@ public class UserDao extends AbstractDao<String, User> implements IUserDao {
 		System.out.println(password);
 		query.setString("user_name", user_name);
 		query.setString("password", password);
-		User result = (User) query.uniqueResult();
+		List result = query.list();
 	
 		System.out.println(result);
 		
-		return result != null;
+		return result.size() == 1;
 	}
 }
