@@ -34,6 +34,7 @@ public class LoginController {
 	public String loginPage(ModelMap model) {
 		if (model.containsAttribute("user_name"))
 			return "redirect:/dashboard";
+		model.addAttribute("user", new User());
 		return "loginPage";
 	}
 	

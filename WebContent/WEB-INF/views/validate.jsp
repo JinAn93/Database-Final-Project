@@ -16,10 +16,10 @@
 		
 		Class.forName("com.mysql.jdbc.Driver"); // Connect to MySQL database
 		Connection conn = DriverManager
-				.getConnection("jdbc:mysql://vcm-1338.vm.duke.edu/db_final?"
-						+ "user=root&password=12345678");
+				.getConnection("jdbc:mysql://db316.ccewzfeuzond.us-west-2.rds.amazonaws.com:3306/db316?"
+						+ "user=db316&password=DB316Rocks!");
 		PreparedStatement pst = conn
-				.prepareStatement("Select * from users  where user_id=? and password=?");
+				.prepareStatement("Select * from User where user_name=? and password=?");
 		pst.setString(1, user_name);
 		pst.setString(2, sb.toString());
 		ResultSet rs = pst.executeQuery();
@@ -30,6 +30,7 @@
 		else
 			out.println("Invalid password <a href='http://localhost:8080/Database-Final-Project/login'> try again</a>");
 	} catch (Exception e) {
+		System.out.println(e);
 		out.println("Try again!");
 	}
 %>
