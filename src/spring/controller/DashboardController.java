@@ -30,6 +30,7 @@ public class DashboardController {
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
 		// Add Login Logic (Spring security / Adding Cookies?) 
+		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}
 
