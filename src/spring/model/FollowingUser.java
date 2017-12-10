@@ -1,37 +1,42 @@
 package spring.model;
 
-import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+
+import spring.util.FollowerFolloweePK;
 
 @Entity
 @Table(name = "Following_User")
 public class FollowingUser {
 
-	@NotNull
-	@Column(name = "FOLLWER")
-	private String follower;
+	@EmbeddedId
+	FollowerFolloweePK pk;
 	
-	@NotNull
-	@Column(name = "FOLLOWEE")
-	private String followee;
+	public FollowerFolloweePK getFollowerFolloweePK() {
+		return pk;
+	}
+	
+	public FollowingUser setFollowerFolloweePK(FollowerFolloweePK pk) {
+		this.pk = pk;
+		return this;
+	}
 	
 	public String getFollower() {
-		return follower;
+		return pk.getFollower();
 	}
 	
 	public FollowingUser setFollower(String follower) {
-		this.follower = follower;
+		pk.setFollower(follower);
 		return this;
 	}
 	
 	public String getFollowee() {
-		return followee;
+		return pk.getFollowee();
 	}
 	
 	public FollowingUser setFollowee(String followee) {
-		this.followee = followee;
+		pk.setFollowee(followee);
 		return this;
 	}
 }
