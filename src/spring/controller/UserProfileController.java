@@ -30,7 +30,7 @@ public class UserProfileController {
 //		}
 		User user = userService.findById("root");	//some username		
 		List<Post> postsList = postService.findPostsByUserName("root");
-		//TODO check if user is null and postslist is null		
+		//TODO check if user is null		
 		model.addAttribute("User", user);	
 		model.addAttribute("Posts", postsList);
 		return "profile";
