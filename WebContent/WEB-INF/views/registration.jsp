@@ -46,7 +46,7 @@
           </div>
           <div class="form-group">
             <label for="username">User Name</label>
-            <input class="form-control" id="username" type="user" aria-describedby="usernameHelp" placeholder="Enter User Name">
+            <input class="form-control" id="username" type="text" aria-describedby="usernameHelp" placeholder="Enter User Name">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -64,7 +64,7 @@
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login">Register</a>
+          <a class="btn btn-primary btn-block" href="validate">Register</a>
         </form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login">Login Page</a>
