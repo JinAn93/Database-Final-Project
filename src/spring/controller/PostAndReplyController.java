@@ -33,14 +33,8 @@ public class PostAndReplyController {
 	
 	@RequestMapping(value = { "/view-{post_id}-post" }, method = RequestMethod.GET)
 	public String viewPost(@PathVariable int post_id, ModelMap model) {
-		if (model.containsAttribute("user_id")) {
-			postService.setCurrentPost(postService.findById(post_id));
-			postService.setCurrentPostID(post_id);
-			postStatus = VIEW_STATUS;
-
-			return "redirect:/detailedPost";
-		}
-		return "redirect:/login";
+		model.addAttribute("post", postService.findById(post_id));
+		return "detailedPost";
 	}
 
 	@RequestMapping(value = { "/edit-{id}-post" }, method = RequestMethod.GET)

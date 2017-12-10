@@ -15,6 +15,7 @@ import spring.model.Company;
 import spring.model.Post;
 import spring.service.ICompanyService;
 import spring.service.IPostService;
+import spring.util.Utils;
 
 @Controller
 @RequestMapping("/")
@@ -30,6 +31,7 @@ public class DashboardController {
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
 		// Add Login Logic (Spring security / Adding Cookies?) 
+		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}
 
@@ -46,9 +48,10 @@ public class DashboardController {
 		}
 		
 		// if company exists in the database
-		
-		if (companyService.findById(post.getCompany_name()) == null)
-			companyService.saveCompany(new Company().setCompany_name(post.getCompany_name()));
+		String company_name_normalized = Utils.normalizeString(post.getCompany_name());
+		if (companyService.findById(company_name_normalized) == null)
+			companyService.saveCompany(new Company().setCompany_name(company_name_normalized));
+		post.setCompany_name(company_name_normalized);
 		postService.savePost(post);
 		model.addAttribute("success", "New Post has been saved!");
 		return "success";
