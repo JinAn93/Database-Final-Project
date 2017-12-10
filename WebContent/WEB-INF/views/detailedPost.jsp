@@ -262,11 +262,41 @@
 									Position </label></td>
 							<td height="50" width="750">${post.interview_position}</td>
 						</tr>
+					</table>
+
+					<div class="card mb-3">
+						<div class="card-header">
+							<i class="fa fa-table"></i> Post Feedbacks
+						</div>
+						<div class="card-body">
+							<table class="table table-bordered" id="DataTable" width="100%"cellspacing-"0">
+								<thead>
+									<tr>
+										<th>User Name</th>
+										<th>Rating</th>
+										<th>Comment</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${postFeedbacks}" var="onepostfeedback">
+										<tr>
+											<td>${onepostfeedback.user_name }</td>
+											<td>${onepostfeedback.rating }</td>
+											<td>${onepostfeedback.comment }</td>
+										</tr>
+
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<table>
 						<tr>
 							<td height="50" width="150"><label for="comment">Comment</label>
 							</td>
 							<td height="50" width="750"><input id="comment"
-								name="comment" style="width: 500px; height:250px;" type="text" value></td>
+								name="comment" style="width: 500px; height: 250px;" type="text"
+								value></td>
 							<td>
 							<td height="50" width="100"></td>
 
@@ -308,7 +338,10 @@
 							data-dismiss="modal">Cancel</button>
 						<a class="btn btn-primary" href="login.html">Logout</a>
 					</div>
+
 				</div>
+
+
 			</div>
 		</div>
 		<!-- Bootstrap core JavaScript-->
@@ -319,6 +352,10 @@
 		<!-- Custom scripts for all pages-->
 		<script src="${js}/sb-admin.min.js"></script>
 	</div>
+
+
+
+
 </body>
 
 </html>

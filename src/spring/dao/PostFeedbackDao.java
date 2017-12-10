@@ -37,6 +37,13 @@ public class PostFeedbackDao extends AbstractDao<Integer, PostFeedback> implemen
 		query.setString("u_name", userName);
 		return (List<PostFeedback>) query.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<PostFeedback> findPostFeedbacksByPostID(int p_id) {
+		Query query = getSession().createSQLQuery("from Post_Feedback where post_id = :p_id").addEntity(PostFeedback.class);
+		query.setParameter("p_id", p_id);
+		return (List<PostFeedback>) query.list();
+	}
 
 
 }

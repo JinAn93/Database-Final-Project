@@ -48,4 +48,14 @@ public interface IPostFeedbackDao {
 	 * @param id
 	 */
 	void deletePostFeedbackById(int id);
+
+	/**
+	 * Find all post feedbacks from a particular post_id in the database
+	 * 
+	 * @param post_id
+	 * @return
+	 */
+
+	List<PostFeedback> findPostFeedbacksByPostID(int post_id);
+
 }

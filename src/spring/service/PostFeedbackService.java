@@ -63,4 +63,9 @@ public class PostFeedbackService implements IPostFeedbackService {
 		return currentPostFeedbackID;
 	}
 
+	@Override
+	public List<PostFeedback> findPostFeedbacksByPostID(int post_id) {
+		return dao.findPostFeedbacksByPostID(post_id);
+	}
+
 }

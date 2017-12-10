@@ -25,4 +25,6 @@ public interface IPostFeedbackService {
 	void setCurrentPostFeedbackID(int currentPostFeedbackID);
 
 	int getCurrentPostFeedbackID();
+
+	List<PostFeedback> findPostFeedbacksByPostID(int post_id);
 }
