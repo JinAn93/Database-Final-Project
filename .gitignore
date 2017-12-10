@@ -1,4 +1,8 @@
 /build/
 /target/
+<<<<<<< HEAD
 .project
 .classpath
+=======
+/bin/
+>>>>>>> ce29dcdc7a7478eccf8d0044b21a455d492a564f

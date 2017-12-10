@@ -42,4 +42,6 @@ public interface IUserDao {
 	 * @return
 	 */
 	String hashPassword(String password);
+	
+	boolean isValidUser(String user_name, String password);
 }
