@@ -40,10 +40,10 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Charts</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Profile">
+          <a class="nav-link" href="profile">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">User Profile</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
