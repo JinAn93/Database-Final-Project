@@ -30,4 +30,11 @@ public class PostDao extends AbstractDao<Integer, Post> implements IPostDao{
 		Criteria criteria = createEntityCriteria();
 		return (List<Post>) criteria.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Post> findPostsByUserName(String userName) {
+		Query query = getSession().createSQLQuery("SELECT * FROM Post WHERE user_name = :u_name").addEntity(Post.class);
+		query.setString("u_name", userName);
+		return (List<Post>) query.list();		
+	}
 }

@@ -65,9 +65,7 @@ public class LoginController {
 
 		if (result.hasErrors()) {
 			return "registration";
-		}
-
-		else if (!userService.isUserIdUnique(user.getUser_name())) {
+		} else if (!userService.isUserIdUnique(user.getUser_name())) {
 			result.addError(createError("user_name", "non.unique.user_name", user.getUser_name()));
 			return "registration";
 		}

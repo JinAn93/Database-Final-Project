@@ -42,6 +42,10 @@ public class PostService implements IPostService{
 	public List<Post> findAllPosts() {
 		return dao.findAllPosts();
 	}
+	
+	public List<Post> findPostsByUserName(String userName) {
+		return dao.findPostsByUserName(userName);
+	}
 
 	public void setCurrentPost(Post currentPost) {
 		this.currentPost = currentPost;		
