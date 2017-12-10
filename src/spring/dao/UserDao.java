@@ -59,10 +59,10 @@ public class UserDao extends AbstractDao<String, User> implements IUserDao {
 		System.out.println(password);
 		query.setString("user_name", user_name);
 		query.setString("password", password);
-		User result = (User) query.uniqueResult();
+		List result = query.list();
 	
 		System.out.println(result);
 		
-		return result != null;
+		return result.size() == 1;
 	}
 }

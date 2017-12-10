@@ -21,7 +21,7 @@
 				.getConnection("jdbc:mysql://db316.ccewzfeuzond.us-west-2.rds.amazonaws.com:3306/db316?"
 						+ "user=db316&password=DB316Rocks!");
 		PreparedStatement pst = conn
-				.prepareStatement("select * from user where user_name=? and password=?");
+				.prepareStatement("select * from User where user_name=? and password=?");
 		pst.setString(1, user_name);
 		pst.setString(2, sb.toString());
 		ResultSet rs = pst.executeQuery();
