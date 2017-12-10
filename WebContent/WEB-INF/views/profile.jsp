@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -44,10 +45,10 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Charts</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Profile">
+          <a class="nav-link" href="profile">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">User Profile</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
@@ -260,7 +261,7 @@
 												<strong>Email: </strong> ${User.email}
 											</p>
 											<p>
-												<strong>Current Company: </strong> Intel Corporation
+												<strong>Current Company: </strong> <c:out value="${empty User.current_company ? 'N/A' : User.current_company}" />
 											</p>
 										</div>
 									</div>
@@ -283,7 +284,7 @@
 										</div>
 										<div class="col-xs-12 col-sm-4 emphasis">
 											<h2>
-												<strong>43</strong>
+												<strong>${fn:length(Posts)}</strong>
 											</h2>
 											<p>
 												<small>Posts</small>
