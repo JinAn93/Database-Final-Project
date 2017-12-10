@@ -34,6 +34,16 @@ public class LoginController {
 	public String loginPage(ModelMap model) {
 		if (model.containsAttribute("user_name"))
 			return "redirect:/dashboard";
+		model.addAttribute("user", new User());
+		return "loginPage";
+	}
+	
+	@RequestMapping(value = {"/login" }, method = RequestMethod.POST)
+	public String login(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
+		if (userService.isValidUser(user.getUser_name(), user.getPassword())) {
+			return "redirect:/dashboard";
+		}
+		
 		return "loginPage";
 	}
 
@@ -51,15 +61,12 @@ public class LoginController {
 		return "registration";
 	}
 	
-	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registerUser(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
 
 		if (result.hasErrors()) {
 			return "registration";
-		}
-
-		else if (!userService.isUserIdUnique(user.getUser_name())) {
+		} else if (!userService.isUserIdUnique(user.getUser_name())) {
 			result.addError(createError("user_name", "non.unique.user_name", user.getUser_name()));
 			return "registration";
 		}

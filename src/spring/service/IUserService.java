@@ -19,4 +19,6 @@ public interface IUserService {
 	boolean isUserIdUnique(String user_id);
 	
 	int isPasswordValid(String password);
+	
+	boolean isValidUser(String user_name, String password);
 }
