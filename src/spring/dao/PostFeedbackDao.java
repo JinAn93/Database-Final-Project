@@ -38,10 +38,9 @@ public class PostFeedbackDao extends AbstractDao<Integer, PostFeedback> implemen
 		return (List<PostFeedback>) query.list();
 	}
 	
-	@SuppressWarnings("unchecked")
 	public List<PostFeedback> findPostFeedbacksByPostID(int p_id) {
-		Query query = getSession().createSQLQuery("from Post_Feedback where post_id = :p_id").addEntity(PostFeedback.class);
-		query.setParameter("p_id", p_id);
+		Query query = getSession().createSQLQuery("SELECT * FROM Post_Feedback WHERE post_id = :p_id").addEntity(PostFeedback.class);
+		query.setInteger("p_id", p_id);
 		return (List<PostFeedback>) query.list();
 	}
 
