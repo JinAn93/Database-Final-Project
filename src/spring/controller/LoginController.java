@@ -44,13 +44,6 @@ public class LoginController {
 		return "redirect:/login";
 	}
 	
-//	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-//	public String showRegistrationForm(WebRequest request, ModelMap model) {
-//		User user = new User();
-//	    model.addAttribute("user", user);
-//	    return "registration";
-//	}
-	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		model.addAttribute("user", new User());
@@ -58,7 +51,6 @@ public class LoginController {
 		return "registration";
 	}
 	
-
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registerUser(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
