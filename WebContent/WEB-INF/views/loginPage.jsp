@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <head>
   <meta charset="utf-8">
@@ -28,14 +29,14 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Login</div>
       <div class="card-body">
-        <form>
+        <form:form action="login" modelAttribute="user" method="POST">
           <div class="form-group">
             <label for="exampleInputEmail1">User Name</label>
-            <input class="form-control" id="exampleInputEmail1" type="username" aria-describedby="emailHelp" placeholder="Enter User Name">
+            <form:input class="form-control" id="exampleInputEmail1" type="username" aria-describedby="emailHelp" placeholder="Enter User Name" path="user_name"/>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+            <form:input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password" path="password"/>
           </div>
           <div class="form-group">
             <div class="form-check">
@@ -43,8 +44,8 @@
                 <input class="form-check-input" type="checkbox"> Remember Password</label>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="dashboard">Login</a>
-        </form>
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </form:form>
         <div class="text-center">
           <a class="d-block small mt-3" href="registration">Register an Account</a>
           <a class="d-block small" href="forgotPassword">Forgot Password?</a>

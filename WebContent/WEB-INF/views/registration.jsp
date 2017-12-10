@@ -31,41 +31,41 @@
     <div class="card card-register mx-auto mt-5">
       <div class="card-header">Register an Account</div>
       <div class="card-body">
-        <form action="/registration" modelAttribute="user" method="POST">
+        <form:form action="registration" modelAttribute="user" method="POST">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputName">First name</label>
-                <input class="form-control" path="first_name" id="first_name" type="text" aria-describedby="nameHelp" placeholder="Enter first name">
+                <form:input class="form-control" path="first_name" id="first_name" type="text" aria-describedby="nameHelp" placeholder="Enter first name"/>
               </div>
               <div class="col-md-6">
                 <label for="exampleInputLastName">Last name</label>
-                <input class="form-control" path="last_name" id="last_name" type="text" aria-describedby="nameHelp" placeholder="Enter last name">
+                <form:input class="form-control" path="last_name" id="last_name" type="text" aria-describedby="nameHelp" placeholder="Enter last name"/>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="username">User Name</label>
-            <input class=/"form-control" path="user_name" id="user_name" type="user" aria-describedby="usernameHelp" placeholder="Enter User Name">
+            <form:input class="form-control" path="user_name" id="user_name" type="user" aria-describedby="usernameHelp" placeholder="Enter User Name"/>
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input class="form-control" path="email" id="email" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <form:input class="form-control" path="email" id="email" type="email" aria-describedby="emailHelp" placeholder="Enter email"/>
           </div>
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-6">
                 <label for="exampleInputPassword1">Password</label>
-                <input class="form-control" path="password" id="password" type="password" placeholder="Password">
+                <form:input class="form-control" path="password" id="password" type="password" placeholder="Password"/>
               </div>
               <div class="col-md-6">
                 <label for="exampleConfirmPassword">Confirm password</label>
-                <input class="form-control" id="password" type="password" placeholder="Confirm password">
+                <form:input class="form-control" path="password" id="password" type="password" placeholder="Confirm password"/>
               </div>
             </div>
           </div>
-          <a class="btn btn-primary btn-block" href="login">Register</a>
-        </form>
+          <button class="btn btn-primary btn-block" type="submit">Register</button>
+        </form:form>
         <div class="text-center">
           <a class="d-block small mt-3" href="login">Login Page</a>
           <a class="d-block small" href="forgotPassword">Forgot Password?</a>

@@ -36,6 +36,15 @@ public class LoginController {
 			return "redirect:/dashboard";
 		return "loginPage";
 	}
+	
+	@RequestMapping(value = {"/login" }, method = RequestMethod.POST)
+	public String login(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
+		if (userService.isValidUser(user.getUser_name(), user.getPassword())) {
+			return "redirect:/dashboard";
+		}
+		
+		return "loginPage";
+	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
@@ -44,21 +53,12 @@ public class LoginController {
 		return "redirect:/login";
 	}
 	
-//	@RequestMapping(value = "/registration", method = RequestMethod.GET)
-//	public String showRegistrationForm(WebRequest request, ModelMap model) {
-//		User user = new User();
-//	    model.addAttribute("user", user);
-//	    return "registration";
-//	}
-	
 	@RequestMapping(value = "/registration", method = RequestMethod.GET)
 	public String newUser(ModelMap model) {
 		model.addAttribute("user", new User());
 		model.addAttribute("edit", false);
 		return "registration";
 	}
-	
-
 	
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
 	public String registerUser(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {

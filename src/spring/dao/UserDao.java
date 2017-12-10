@@ -50,4 +50,13 @@ public class UserDao extends AbstractDao<String, User> implements IUserDao {
 		}
 		return null;
 	}
+	
+	public boolean isValidUser(String user_name, String password) {
+		Query query = getSession().createSQLQuery("select * from Users where user_name = :user_name and password = :password");
+		query.setString("user_name", user_name);
+		query.setString("password", password);
+		List<Object> result = query.list();
+	
+		return result.size() == 1;
+	}
 }

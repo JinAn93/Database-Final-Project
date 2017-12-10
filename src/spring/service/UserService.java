@@ -73,4 +73,8 @@ public class UserService implements IUserService {
 		return NO_ERROR;
 
 	}
+	
+	public boolean isValidUser(String user_name, String password) {
+		return dao.isValidUser(user_name, dao.hashPassword(password));
+	}
 }
