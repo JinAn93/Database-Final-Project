@@ -15,6 +15,7 @@ import spring.model.Company;
 import spring.model.Post;
 import spring.service.ICompanyService;
 import spring.service.IPostService;
+import spring.service.IUserService;
 import spring.util.Utils;
 
 @Controller
@@ -27,6 +28,9 @@ public class DashboardController {
 	
 	@Autowired
 	ICompanyService companyService;
+	
+	@Autowired
+	IUserService userService;
 
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
@@ -34,6 +38,12 @@ public class DashboardController {
 		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}
+	
+//	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+//	public String listUsers(ModelMap model) {
+//		model.addAttribute("feedbacks", userService.findAllUsers());
+//		return "dashboard";
+//	}
 
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)
 	public String newPost(ModelMap model) {
