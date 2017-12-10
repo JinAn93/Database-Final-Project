@@ -309,16 +309,18 @@
             <div class="list-group list-group-flush small">
             
             <c:forEach items="${Posts}" var="Post" varStatus="i">
-			    <a class="list-group-item list-group-item-action">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>${Post.user_name } </strong> posted about
-                    <strong>${Post.company_name }</strong>.                    
-                    <div class="text-muted smaller">${Post.post_date}</div>
-                  </div>
-                </div>
-              </a>
+            	<c:if test="${i.index < 5}"> 
+				    <a class="list-group-item list-group-item-action">
+	                <div class="media">
+	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+	                  <div class="media-body">
+	                    <strong>${Post.user_name } </strong> posted about
+	                    <strong>${Post.company_name }</strong>.                    
+	                    <div class="text-muted smaller">${Post.post_date}</div>
+	                  </div>
+	                </div>
+	              </a>
+              </c:if>
 			</c:forEach>
 
               <a class="list-group-item list-group-item-action" >View all activity...</a>
