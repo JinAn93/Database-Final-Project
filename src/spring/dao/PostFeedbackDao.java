@@ -6,7 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
-import spring.model.PostFeedback
+import spring.model.PostFeedback;
 
 @Repository("PostFeedbackDao")
 public class PostFeedbackDao extends AbstractDao<Integer, PostFeedback> implements IPostFeedbackDao {
@@ -26,16 +26,17 @@ public class PostFeedbackDao extends AbstractDao<Integer, PostFeedback> implemen
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<PostFeedbackf> findAllPostFeedbacks() {
+	public List<PostFeedback> findAllPostFeedbacks() {
 		Criteria criteria = createEntityCriteria();
 		return (List<PostFeedback>) criteria.list();
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<PostFeedback> findPostsByUserName(String userName) {
+	public List<PostFeedback> findPostFeedbacksByUserName(String userName) {
 		Query query = getSession().createSQLQuery("SELECT * FROM Post_Feedback WHERE user_name = :u_name").addEntity(PostFeedback.class);
 		query.setString("u_name", userName);
 		return (List<PostFeedback>) query.list();
 	}
+
 
 }

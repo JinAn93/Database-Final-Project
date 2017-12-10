@@ -9,66 +9,58 @@ import org.springframework.transaction.annotation.Transactional;
 import spring.dao.IPostFeedbackDao;
 import spring.model.PostFeedback;
 
-public class PostFeedbackService implements IPostFeedbackService{
+@Service("postFeedbackService")
+@Transactional
+public class PostFeedbackService implements IPostFeedbackService {
 
-	@Override
+	@Autowired
+	private IPostFeedbackDao dao;
+
+	private PostFeedback currentPostFeedback;
+	private int currentPostFeedbackID;
+
+	public PostFeedback findById(int id) {
+		return dao.findById(id);
+	}
+
 	public void savePostFeedback(PostFeedback postFeedback) {
-		// TODO Auto-generated method stub
-		
+		dao.savePostFeedback(postFeedback);
 	}
 
-	@Override
 	public void updatePostFeedback(PostFeedback postFeedback) {
-		// TODO Auto-generated method stub
-		
+		PostFeedback entity = dao.findById(postFeedback.getPost_feedback_id());
+		if (entity != null) {
+			entity.setComment(postFeedback.getComment());
+			// entity.setPostFeedback_date(postFeedback.get());
+		}
 	}
 
-	@Override
 	public void deletePostFeedbackByID(int id) {
-		// TODO Auto-generated method stub
-		
+		dao.deletePostFeedbackById(id);
 	}
 
-	@Override
 	public List<PostFeedback> findAllPostFeedbacks() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findAllPostFeedbacks();
 	}
 
-	@Override
 	public List<PostFeedback> findPostFeedbacksByUserName(String userName) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.findPostFeedbacksByUserName(userName);
 	}
 
-	@Override
 	public void setCurrentPostFeedback(PostFeedback currentPostFeedback) {
-		// TODO Auto-generated method stub
-		
+		this.currentPostFeedback = currentPostFeedback;
 	}
 
-	@Override
 	public PostFeedback getCurrentPostFeedback() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.currentPostFeedback;
 	}
 
-	@Override
 	public void setCurrentPostFeedbackID(int currentPostFeedbackID) {
-		// TODO Auto-generated method stub
-		
+		this.currentPostFeedbackID = currentPostFeedbackID;
 	}
 
-	@Override
 	public int getCurrentPostFeedbackID() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public spring.service.PostFeedback getCurrentPostFeedback() {
-		// TODO Auto-generated method stub
-		return null;
+		return currentPostFeedbackID;
 	}
 
 }
