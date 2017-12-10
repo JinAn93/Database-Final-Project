@@ -18,7 +18,7 @@ import spring.service.IReplyService;
 @Controller
 @RequestMapping("/")
 @SessionAttributes("user_id")
-public class PostAndReplyController {
+public class PostController {
 
 	@Autowired
 	IPostService postService;
@@ -30,6 +30,7 @@ public class PostAndReplyController {
 	private static final int REPLY_STATUS = 1;
 	private static final int EDIT_STATUS = 2;
 	private int postStatus = 0;
+	
 	
 	@RequestMapping(value = { "/view-{post_id}-post" }, method = RequestMethod.GET)
 	public String viewPost(@PathVariable int post_id, ModelMap model) {
