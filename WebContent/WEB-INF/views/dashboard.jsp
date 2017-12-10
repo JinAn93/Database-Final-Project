@@ -235,7 +235,7 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${posts}" var="onepost">
-									<tr>
+									<tr onclick="window.location='view-${onepost.post_id}-post'">
 										<td>${onepost.user_name}</td>
 										<td>0</td>
 										<td>${onepost.company_name}</td>
