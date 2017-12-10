@@ -28,7 +28,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="index.html">Recruit Monster</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,10 +76,10 @@
               <a href="login.html">Login Page</a>
             </li>
             <li>
-              <a href="registration">Registration Page</a>
+              <a href="register.html">Registration Page</a>
             </li>
             <li>
-              <a href="forgotPassword">Forgot Password Page</a>
+              <a href="forgot-password.html">Forgot Password Page</a>
             </li>
             <li>
               <a href="blank.html">Blank Page</a>

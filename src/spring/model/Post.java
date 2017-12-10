@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,12 +16,12 @@ import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name = "POST")
+@Table(name = "Post")
 public class Post {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int post_id;
+	private Integer post_id;
 
 	@NotNull
 	@Column(name = "USER_NAME", nullable = false)
@@ -27,10 +29,10 @@ public class Post {
 
 	@NotNull
 	@Column(name = "COMPANY_NAME", nullable = false)
-	private int company_name;
+	private String company_name;
 
 	@NotNull
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	@Column(name = "POST_DATE", nullable = false)
 	@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate post_date;
@@ -40,9 +42,10 @@ public class Post {
 		post_date = new LocalDate().now();
 	}
 
-	@Size(min = 0, max = 5)
+	@Min(0)
+	@Max(5)
 	@Column(name = "COMPANY_RATING")
-	private int company_rating;
+	private Integer company_rating;
 
 	@Column(name = "INTERVIEW_RESULT")
 	private String interview_result;
@@ -53,7 +56,7 @@ public class Post {
 
 	@NotNull
 	@Column(name = "INTERVIEW_YEAR")
-	private int interview_year;
+	private Integer interview_year;
 
 	@NotNull
 	@Column(name = "INTERVIEW_SEASON")
@@ -63,11 +66,11 @@ public class Post {
 	@Column(name = "INTERVIEW_POSITION")
 	private String interview_position;
 
-	public int getPost_id() {
+	public Integer getPost_id() {
 		return post_id;
 	}
 
-	public void setPost_id(int post_id) {
+	public void setPost_id(Integer post_id) {
 		this.post_id = post_id;
 	}
 
@@ -79,11 +82,11 @@ public class Post {
 		this.user_name = user_name;
 	}
 
-	public int getCompany_name() {
+	public String getCompany_name() {
 		return company_name;
 	}
 
-	public void setCompany_name(int company_name) {
+	public void setCompany_name(String company_name) {
 		this.company_name = company_name;
 	}
 
@@ -95,11 +98,11 @@ public class Post {
 		this.post_date = post_date;
 	}
 
-	public int getCompany_rating() {
+	public Integer getCompany_rating() {
 		return company_rating;
 	}
 
-	public void setCompany_rating(int company_rating) {
+	public void setCompany_rating(Integer company_rating) {
 		this.company_rating = company_rating;
 	}
 
@@ -119,11 +122,11 @@ public class Post {
 		this.content = content;
 	}
 
-	public int getInterview_year() {
+	public Integer getInterview_year() {
 		return interview_year;
 	}
 
-	public void setInterview_year(int interview_year) {
+	public void setInterview_year(Integer interview_year) {
 		this.interview_year = interview_year;
 	}
 
@@ -142,5 +145,6 @@ public class Post {
 	public void setInterview_position(String interview_position) {
 		this.interview_position = interview_position;
 	}
-
 }
+
+

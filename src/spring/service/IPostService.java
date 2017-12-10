@@ -16,6 +16,8 @@ public interface IPostService {
 	
 	List<Post> findAllPosts();
 	
+	List<Post> findPostsByUserName(String userName);
+	
 	void setCurrentPost(Post currentPost);
 	
 	Post getCurrentPost();
