@@ -58,10 +58,6 @@
                 <label for="exampleInputPassword1">Password</label>
                 <form:input class="form-control" path="password" id="password" type="password" placeholder="Password"/>
               </div>
-              <div class="col-md-6">
-                <label for="exampleConfirmPassword">Confirm password</label>
-                <form:input class="form-control" path="password" id="password" type="password" placeholder="Confirm password"/>
-              </div>
             </div>
           </div>
           <button class="btn btn-primary btn-block" type="submit">Register</button>
