@@ -48,6 +48,9 @@ public class DashboardController {
 	
 	@Autowired
 	IFollowingUserService followingUserService;
+	
+	@Autowired
+	IUserService userService;
 
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
@@ -55,6 +58,12 @@ public class DashboardController {
 		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}
+	
+//	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+//	public String listUsers(ModelMap model) {
+//		model.addAttribute("feedbacks", userService.findAllUsers());
+//		return "dashboard";
+//	}
 
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)
 	public String newPost(ModelMap model) {
