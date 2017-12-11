@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.springframework.stereotype.Repository;
 
 import spring.model.FollowingUser;
 import spring.util.FollowerFolloweePK;
 
+@Repository("followingUserDao")
 public class FollowingUserDao extends AbstractDao<FollowerFolloweePK, FollowingUser> implements IFollowingUserDao {
 
 	public FollowingUser findFollowingUser(FollowerFolloweePK pk) {
