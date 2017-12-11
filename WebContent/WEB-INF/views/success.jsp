@@ -5,15 +5,6 @@
 
 <html>
 <head>
-<%-- <spring:url value="/resources/jquery-1.11.1/" var="jquery" />
-<spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
-<spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
-<script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> --%>
-
   <!-- Bootstrap core CSS-->
   <spring:url value="/resources/vendor" var="vendor" />
   <spring:url value="/resources/css" var="css" />
@@ -26,16 +17,33 @@
   <!-- Custom styles for this template-->
   <link href="${css}/sb-admin.css" rel="stylesheet">
 
-<title>Success</title>
+<title>Register Success</title>
 </head>
 
-<style>
-body {
-	text-align: center;
-	font-family: Helvetica;
-}
-</style>
-<body>
+
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">You have successfully registered an account</div>
+      <div class="card-body">
+        <div class="text-center">
+        	
+          <a class="d-block" href="login">Login Here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+</body>
+
+
+
+<%-- <body>
 	<!-- navbar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
@@ -72,5 +80,5 @@ body {
 			<a href="login">Login Here!</a>
 		</c:otherwise>
 	</c:choose>
-</body>
+</body> --%>
 </html>

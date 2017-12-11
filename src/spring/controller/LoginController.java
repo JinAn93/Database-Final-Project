@@ -2,6 +2,8 @@ package spring.controller;
 
 import java.util.Locale;
 
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,8 @@ public class LoginController {
 		model.addAttribute("user", new User());
 		return "loginPage";
 	}
-	
+
+
 	@RequestMapping(value = {"/login" }, method = RequestMethod.POST)
 	public String login(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
 		if (userService.isValidUser(user.getUser_name(), user.getPassword())) {

@@ -58,6 +58,12 @@
                 <label for="exampleInputPassword1">Password</label>
                 <form:input class="form-control" path="password" id="password" type="password" placeholder="Password"/>
               </div>
+              <div class="col-md-6">
+              <p></p>
+              <p></p>
+                <label class = "small">must contain one capital letter</label>
+                <label class = "small">must contain at least ten characters</label>
+              </div>
             </div>
           </div>
           <button class="btn btn-primary btn-block" type="submit">Register</button>
@@ -74,6 +80,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Core plugin JavaScript-->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script></script>
 </body>
 
 </html>
