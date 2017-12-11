@@ -14,7 +14,10 @@
 		<mockito.version>1.10.19</mockito.version>
 		<h2.version>1.4.187</h2.version>
 		<dbunit.version>2.2</dbunit.version>
+		<org.springframework.security.version>3.2.3.RELEASE</org.springframework.security.version>
+    	<org.springframework.version>4.0.4.RELEASE</org.springframework.version>
 	</properties>
+	
 
 	<dependencies>
 		<!-- Email Service -->
@@ -49,7 +52,24 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
-
+		
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-core</artifactId>
+    		<version>${org.springframework.security.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+   			<artifactId>spring-security-web</artifactId>
+    		<version>${org.springframework.security.version}</version>
+		</dependency>
+		<dependency>
+    		<groupId>org.springframework.security</groupId>
+    		<artifactId>spring-security-config</artifactId>
+    		<version>${org.springframework.security.version}</version>
+		</dependency>
+		
+		
 		<!-- Hibernate -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -159,7 +179,7 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+				<version>3.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>

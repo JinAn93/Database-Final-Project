@@ -14,7 +14,12 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import spring.service.UserService;
 
 @Configuration
 @EnableTransactionManagement
@@ -24,7 +29,8 @@ public class HibernateConfiguration {
 
 	@Autowired
 	private Environment environment;
-
+	private UserService userService;
+	
 	@Bean
 	public LocalSessionFactoryBean sessionFactory() {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
@@ -66,4 +72,17 @@ public class HibernateConfiguration {
 		txManager.setSessionFactory(s);
 		return txManager;
 	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
+//	@Bean
+//	public DaoAuthenticationProvider authProvider() {
+//	    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
+//	    authProvider.setUserDetailsService();
+//	    authProvider.setPasswordEncoder();
+//	    return authProvider;
+//	}
 }

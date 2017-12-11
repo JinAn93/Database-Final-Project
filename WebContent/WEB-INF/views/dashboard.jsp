@@ -12,7 +12,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>SB Admin - Start Bootstrap Template</title>
+<title>Dashboard</title>
 <!-- Bootstrap core CSS-->
 <spring:url value="/resources/vendor" var="vendor" />
 <spring:url value="/resources/css" var="css" />

@@ -3,122 +3,84 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<html>
+
 
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
-<spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
-<spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
-<script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Account Form</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Sign Up</title>
+
+  <!-- Bootstrap core CSS-->
+  <spring:url value="/resources/vendor" var="vendor" />
+  <spring:url value="/resources/css" var="css" />
+  <spring:url value="/resources/js" var ="js" />
+  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="${vendor}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="${vendor}/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="${css}/sb-admin.css" rel="stylesheet">
 </head>
 
-<style>
-.error {
-	color: #ff0000;
-}
-
-body {
-	margin: auto;
-	text-align: center;
-	padding: 70px;
-	font-family: Helvetica;
-}
-
-input {
-	font-family: Helvetica;
-}
-
-h1 {
-	text-align: center;
-}
-</style>
-
-<body>
-	<!-- navbar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Dashboard</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="<c:url value='/dashboard' />">Home</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- navbar end -->
-	<div class="Instruction">
-		<c:choose>
-			<c:when test="${edit}">
-				<h1>Modify Your Account!</h1>
-			</c:when>
-			<c:otherwise>
-				<h1>Create Your Account!</h1>
-			</c:otherwise>
-		</c:choose>
-	</div>
-
-	<form:form method="POST" modelAttribute="user">
-		<table class="userDetails" align="center">
-			<tr>
-				<td><label for="name">Name: </label></td>
-				<td><form:input path="name" id="name" /></td>
-				<td><form:errors path="name" cssClass="error" /></td>
-			</tr>
-
-			<tr>
-				<td><label for="email">Email: </label></td>
-				<td><form:input path="email" id="email" /></td>
-				<td><form:errors path="email" cssClass="error" /></td>
-			</tr>
-
-			<tr>
-				<td><label for="user_id">User ID: </label></td>
-				<c:choose>
-					<c:when test="${edit}">
-						<td><form:input path="user_id" id="user_id" readonly="true" /></td>
-					</c:when>
-					<c:otherwise>
-						<td><form:input path="user_id" id="user_id" /></td>
-					</c:otherwise>
-				</c:choose>				
-				<td><form:errors path="user_id" cssClass="error" /></td>
-			</tr>
-
-			<tr>
-				<td><label for="password">Password: </label>
-				<td><form:input type="password" path="password" id="password" /></td>
-				<td><form:errors path="password" cssClass="error" /></td>
-			</tr>
-			<tr>
-				<td colspan="3">
-					<c:choose>
-						<c:when test="${edit}">
-							<input type="submit" value="Update" />
-						</c:when>
-						<c:otherwise>
-							<input type="submit" value="Register" />
-						</c:otherwise>
-					</c:choose>
-				</td>
-			</tr>
-		</table>
-	</form:form>
-	<br />
-	<br /> 
-	Go back to <a href="login">Login Page</a>
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">Register an Account</div>
+      <div class="card-body">
+        <form:form action="registration" modelAttribute="user" method="POST">
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="exampleInputName">First name</label>
+                <form:input class="form-control" path="first_name" id="first_name" type="text" aria-describedby="nameHelp" placeholder="Enter first name"/>
+              </div>
+              <div class="col-md-6">
+                <label for="exampleInputLastName">Last name</label>
+                <form:input class="form-control" path="last_name" id="last_name" type="text" aria-describedby="nameHelp" placeholder="Enter last name"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <form:input class="form-control" path="user_name" id="user_name" type="user" aria-describedby="usernameHelp" placeholder="Enter User Name"/>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <form:input class="form-control" path="email" id="email" type="email" aria-describedby="emailHelp" placeholder="Enter email"/>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="exampleInputPassword1">Password</label>
+                <form:input class="form-control" path="password" id="password" type="password" placeholder="Password"/>
+              </div>
+              <div class="col-md-6">
+              <p></p>
+              <p></p>
+                <label class = "small">must contain one capital letter</label>
+                <label class = "small">must contain at least ten characters</label>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Register</button>
+        </form:form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="login">Login Page</a>
+          <a class="d-block small" href="forgotPassword">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script></script>
 </body>
+
 </html>
