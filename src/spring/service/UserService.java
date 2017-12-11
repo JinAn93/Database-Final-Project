@@ -3,6 +3,7 @@ package spring.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +16,8 @@ public class UserService implements IUserService {
 
 	@Autowired
 	private IUserDao dao;
-
+	private PasswordEncoder passwordEncoder;
+	
 	//TODO: Resourcebundle
 	private static final int NO_ERROR = 0;
 	private static final int DIGIT_ERROR = 1;
@@ -72,5 +74,9 @@ public class UserService implements IUserService {
 			return WHITESPACE_ERROR;
 		return NO_ERROR;
 
+	}
+	
+	public boolean isValidUser(String user_name, String password) {
+		return dao.isValidUser(user_name, dao.hashPassword(password));
 	}
 }
