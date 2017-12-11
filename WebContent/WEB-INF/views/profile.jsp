@@ -270,7 +270,7 @@
 									<div class="form-inline text-center">
 										<div class="col-xs-12 col-sm-4 emphasis">
 											<h2>
-												<strong> 20,7K </strong>
+												<strong> <c:out value="${empty NumFollowers ? '0' : NumFollowers}" /> </strong>
 											</h2>
 											<p>
 												<small>Followers</small>
@@ -278,7 +278,7 @@
 										</div>
 										<div class="col-xs-12 col-sm-4 emphasis">
 											<h2>
-												<strong>245</strong>
+												<strong>${fn:length(FollowedUsers)}</strong>
 											</h2>
 											<p>
 												<small>Following</small>
@@ -309,7 +309,7 @@
             <div class="list-group list-group-flush small">
             
             <c:forEach items="${Posts}" var="Post" varStatus="i">
-            	<c:if test="${i.index < 5}"> 
+            	<c:if test="${i.index < 9}"> 
 				    <a class="list-group-item list-group-item-action">
 	                <div class="media">
 	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
@@ -336,57 +336,22 @@
 	            <div class="card-header">
 	              <i class="fa fa-users"></i> Followed Users</div>
 	            <div class="list-group list-group-flush small">
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/20x20" alt="">
-	                  <div class="media-body">
-	                    <strong>David Miller</strong>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Samantha King</strong>sent you a new message!
-	                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Jeffery Wellings</strong>added a new photo to the album
-	                    <strong>Beach</strong>.
-	                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <i class="fa fa-code-fork"></i>
-	                    <strong>Monica Dennis</strong>forked the
-	                    <strong>startbootstrap-sb-admin</strong>repository on
-	                    <strong>GitHub</strong>.
-	                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <i class="fa fa-code-fork"></i>
-	                    <strong>adsf asdf</strong>forked the
-	                    <strong>startbootstrap-sb-admin</strong>repository on
-	                    <strong>GitHub</strong>.
-	                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-	                  </div>
-	                </div>
-	              </a>
+	            
+	            <c:forEach items="${FollowedUsers}" var="FollowedUser" varStatus="i">
+            		<c:if test="${i.index < 5}"> 
+					    <a class="list-group-item list-group-item-action" href="#">
+		                <div class="media">
+		                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/20x20" alt="">
+		                  <div class="media-body">
+		                    <strong>${FollowedUser.getFollowee()}</strong>
+		                  </div>
+		                </div>
+		              </a>
+              		</c:if>
+				</c:forEach>
+	            
+	   
+	              
 	              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
 	            </div>
 	            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
@@ -398,44 +363,19 @@
 	            <div class="card-header">
 	              <i class="fa fa-building"></i> Followed Companies</div>
 	            <div class="list-group list-group-flush small">
-	              <a class="list-group-item list-group-item-action" href="#">
+	            
+	         <c:forEach items="${FollowedCompanies}" var="FollowedCompany" varStatus="i">
+            	<c:if test="${i.index < 5}"> 
+				    <a class="list-group-item list-group-item-action" href="#">
 	                <div class="media">
 	                  <div class="media-body">
-	                    <strong>Intel Corporation</strong>
+	                    <strong>${FollowedCompany.getCompany_name()}</strong>
 	                  </div>
 	                </div>
 	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Samantha King</strong>sent you a new message!
-	                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Jeffery Wellings</strong>added a new photo to the album
-	                    <strong>Beach</strong>.
-	                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <i class="fa fa-code-fork"></i>
-	                    <strong>Monica Dennis</strong>forked the
-	                    <strong>startbootstrap-sb-admin</strong>repository on
-	                    <strong>GitHub</strong>.
-	                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-	                  </div>
-	                </div>
-	              </a>
+              </c:if>
+			</c:forEach>
+	         
 	              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
 	            </div>
 	            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
