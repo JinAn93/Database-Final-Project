@@ -11,7 +11,7 @@ import spring.model.FollowingCompany;
 
 @Service("followingCompanyService")
 @Transactional
-public class FollowingCompanyService {
+public class FollowingCompanyService implements IFollowingCompanyService {
 
 	@Autowired
 	private IFollowingCompanyDao dao;
