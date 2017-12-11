@@ -124,6 +124,8 @@ public class EmailService {
 		post.setInterview_year(2016);
 		post.setPost_id(100);
 		post.setUser_name("ryanchung93");
+		for(int i=0; i<5; i++) {
+			
 		
 		List<String> emails = new ArrayList<String>();
 		emails.add("seungjinan93@gmail.com");
@@ -139,6 +141,13 @@ public class EmailService {
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}
+		try {
+			Thread.sleep(8000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		}
 	}
 }
