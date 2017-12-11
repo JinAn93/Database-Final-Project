@@ -36,15 +36,18 @@ public class UserProfileController {
 	
 	@RequestMapping(value =  "/profile", method = RequestMethod.GET)
 	public String userProfilePage(ModelMap model) {
+		//TODO redirect to dashboard if user not logged in
 //		if (model.containsAttribute("user_id")) {
 //			return "redirect:/dashboard";
 //		}
-		User user = userService.findById("root");	//some username		
+		//TODO link user name
+		User user = userService.findById("root");			
 		List<Post> postsList = postService.findPostsByUserName(user.getUser_name());
+		//TODO Fix dao/model for company and follower; cant cast BigInt to long for follower and sql exception for company since column names not correct
 //		List<FollowingCompany> followedCompaniesList = followingCompanyService.findFollowingCompanyByUserName(user.getUser_name());
 		List<FollowingUser> followingUsers = followingUserService.findFollowingUserByFollower(user.getUser_name());
 //		Long NumFollowers = followingUserService.countFollowingUserByFollowee(user.getUser_name());
-		//TODO check if user is null
+		
 		Collections.sort(postsList, new Comparator<Post>() {
 			@Override
 			public int compare(Post o1, Post o2) {
