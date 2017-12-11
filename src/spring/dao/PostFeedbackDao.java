@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import spring.model.PostFeedback;
 
-@Repository("PostFeedbackDao")
+@Repository("postFeedbackDao")
 public class PostFeedbackDao extends AbstractDao<Integer, PostFeedback> implements IPostFeedbackDao {
 
 	public PostFeedback findById(int id) {
