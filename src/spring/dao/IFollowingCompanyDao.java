@@ -26,4 +26,15 @@ public interface IFollowingCompanyDao {
 	 * @return
 	 */
 	List<FollowingCompany> findAllFollowingCompanys();
+	
+	List<FollowingCompany> findFollowingCompanyByUserName(String user_name);
+	
+	List<FollowingCompany> findFollowingCompanyByCompany(String company_name);
+		
+	void deleteFollowingCompany(String user_name, String company_name);
+	
+	Long countFollowingCompanyByUserName(String user_name);
+	
+	Long countFollowingCompanyByCompany(String company_name);
+		
 }

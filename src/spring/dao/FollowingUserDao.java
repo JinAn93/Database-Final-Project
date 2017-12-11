@@ -31,5 +31,29 @@ public class FollowingUserDao extends AbstractDao<FollowerFolloweePK, FollowingU
 		query.executeUpdate();
 	}
 	
-
+	@SuppressWarnings("unchecked")
+	public List<FollowingUser> findFollowingUserByFollower(String follower) {
+		Query query = getSession().createSQLQuery("select * from Following_User where follower = :follower").addEntity(FollowingUser.class);
+		query.setString("follower", follower);
+		return (List<FollowingUser>) query.list();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<FollowingUser> findFollowingUserByFollowee(String followee) {
+		Query query = getSession().createSQLQuery("select * from Following_User where followee = :followee").addEntity(FollowingUser.class);
+		query.setString("followee", followee);
+		return (List<FollowingUser>) query.list();
+	}
+	
+	public Long countFollowingUserByFollower(String follower) {
+		Query query = getSession().createSQLQuery("select count(*) from Following_User where follower = :follower");
+		query.setString("follower",follower);
+		return (Long) query.uniqueResult();
+	}
+	
+	public Long countFollowingUserByFollowee(String followee) {
+		Query query = getSession().createSQLQuery("select count(*) from Following_User where followee = :followee");
+		query.setString("followee", followee);
+		return (Long) query.uniqueResult();
+	}
 }

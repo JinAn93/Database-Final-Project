@@ -26,4 +26,14 @@ public interface IFollowingUserDao {
 	 * @return
 	 */
 	List<FollowingUser> findAllFollowingUser();
+	
+	void deleteFollowingCompany(String follower, String followee);
+	
+	List<FollowingUser> findFollowingUserByFollower(String follower);
+	
+	List<FollowingUser> findFollowingUserByFollowee(String followee);
+	
+	Long countFollowingUserByFollower(String follower);
+	
+	Long countFollowingUserByFollowee(String followee);
 }

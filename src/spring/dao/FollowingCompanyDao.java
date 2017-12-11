@@ -32,4 +32,30 @@ public class FollowingCompanyDao extends AbstractDao<UserCompanyPK, FollowingCom
 		query.setString("company_name",  company_name);
 		query.executeUpdate();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<FollowingCompany> findFollowingCompanyByUserName(String user_name) {
+		Query query = getSession().createSQLQuery("select * from Following_Company where user_name = :user_name").addEntity(FollowingCompany.class);
+		query.setString("user_name", user_name);
+		return (List<FollowingCompany>) query.list();
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<FollowingCompany> findFollowingCompanyByCompany(String company_name) {
+		Query query = getSession().createSQLQuery("select * from Following_Company where company_name = :company_name").addEntity(FollowingCompany.class);
+		query.setString("company_name", company_name);
+		return (List<FollowingCompany>) query.list();
+	}
+	
+	public Long countFollowingCompanyByUserName(String user_name) {
+		Query query = getSession().createSQLQuery("select count(*) from Following_Company where user_name = :user_name");
+		query.setString("user_name", user_name);
+		return (Long) query.uniqueResult();
+	}
+	
+	public Long countFollowingCompanyByCompany(String company_name) {
+		Query query = getSession().createSQLQuery("select count(*) from Following_Company where company_name = :company_name");
+		query.setString("company_name", company_name);
+		return (Long) query.uniqueResult();
+	}
 }
