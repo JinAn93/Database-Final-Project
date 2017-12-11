@@ -48,13 +48,19 @@ public class DashboardController {
 	
 	@Autowired
 	IFollowingUserService followingUserService;
-
+	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
 		// Add Login Logic (Spring security / Adding Cookies?) 
 		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}
+	
+//	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+//	public String listUsers(ModelMap model) {
+//		model.addAttribute("feedbacks", userService.findAllUsers());
+//		return "dashboard";
+//	}
 
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)
 	public String newPost(ModelMap model) {

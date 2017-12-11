@@ -89,7 +89,7 @@
 						<li><a href="#">Second Level Item</a></li>
 						<li><a href="#">Second Level Item</a></li>
 						<li><a class="nav-link-collapse collapsed"
-							data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+							data-toggle="collapse" href="#collapseMulti2">Third Level</a> x`
 							<ul class="sidenav-third-level collapse" id="collapseMulti2">
 								<li><a href="#">Third Level Item</a></li>
 								<li><a href="#">Third Level Item</a></li>
@@ -214,55 +214,94 @@
 			<div class="row">
 				<div class="col-12">
 					<h1>View Post</h1>
-						<table class="postForm">
-							<tr>
-								<td height="50" width="150"><label for="user_name">User
-										Name </label></td>
-								<td height="50" width="750">${post.user_name}</td>
-							</tr>
+					<table class="postForm">
+						<tr>
+							<td height="50" width="150"><label for="user_name">User
+									Name </label></td>
+							<td height="50" width="750">${post.user_name}</td>
+						</tr>
 
-							<tr>
-								<td height="50" width="150"><label for="company_name">Company
-										Name </label></td>
-								<td height="50" width="750">${post.company_name}</td>
-							</tr>
+						<tr>
+							<td height="50" width="150"><label for="company_name">Company
+									Name </label></td>
+							<td height="50" width="750">${post.company_name}</td>
+						</tr>
 
-							<tr>
-								<td height="50" width="150"><label for="company_rating">Company
-										Rating </label></td>
-								<td height="50" width="750">${post.company_rating}</td>
-							</tr>
+						<tr>
+							<td height="50" width="150"><label for="company_rating">Company
+									Rating </label></td>
+							<td height="50" width="750">${post.company_rating}</td>
+						</tr>
 
-							<tr>
-								<td height="50" width="150"><label for="interview_result">Interview
-										Result </label></td>
-								<td height="50" width="750">${post.interview_result}</td>
-							</tr>
+						<tr>
+							<td height="50" width="150"><label for="interview_result">Interview
+									Result </label></td>
+							<td height="50" width="750">${post.interview_result}</td>
+						</tr>
 
-							<tr>
-								<td height="100" width="150"><label for="content">Content
-								</label></td>
-								<td height="100" width="750">${post.content}</td>
-							</tr>
+						<tr>
+							<td height="100" width="150"><label for="content">Content
+							</label></td>
+							<td height="100" width="750">${post.content}</td>
+						</tr>
 
-							<tr>
-								<td height="50" width="150"><label for="interview_year">Interview
-										Year </label></td>
-								<td height="50" width="750">${post.interview_year}</td>
-							</tr>
+						<tr>
+							<td height="50" width="150"><label for="interview_year">Interview
+									Year </label></td>
+							<td height="50" width="750">${post.interview_year}</td>
+						</tr>
 
-							<tr>
-								<td height="50" width="150"><label for="interview_season">Interview
-										Season </label></td>
-								<td height="50" width="750">${post.interview_season}</td>
-							</tr>
+						<tr>
+							<td height="50" width="150"><label for="interview_season">Interview
+									Season </label></td>
+							<td height="50" width="750">${post.interview_season}</td>
+						</tr>
 
-							<tr>
-								<td height="50" width="150"><label for="interview_position">Interview
-										Position </label></td>
-								<td height="50" width="750">${post.interview_position}</td>
-							</tr>
-						</table>
+						<tr>
+							<td height="50" width="150"><label for="interview_position">Interview
+									Position </label></td>
+							<td height="50" width="750">${post.interview_position}</td>
+						</tr>
+					</table>
+
+					<div class="card mb-3">
+						<div class="card-header">
+							<i class="fa fa-table"></i> Post Feedbacks
+						</div>
+						<div class="card-body">
+							<table class="table table-bordered" id="DataTable" width="100%"cellspacing-"0">
+								<thead>
+									<tr>
+										<th>User Name</th>
+										<th>Rating</th>
+										<th>Comment</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${postFeedbacks}" var="onepostfeedback">
+										<tr>
+											<td>${onepostfeedback.user_name }</td>
+											<td>${onepostfeedback.rating }</td>
+											<td>${onepostfeedback.comment }</td>
+										</tr>
+
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<table>
+						<tr>
+							<td height="50" width="150"><label for="comment">Comment</label>
+							</td>
+							<td height="50" width="750"><input id="comment"
+								name="comment" style="width: 500px; height: 250px;" type="text"
+								value></td>
+							<td>
+							<td height="50" width="100"></td>
+
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -299,7 +338,10 @@
 							data-dismiss="modal">Cancel</button>
 						<a class="btn btn-primary" href="login.html">Logout</a>
 					</div>
+
 				</div>
+
+
 			</div>
 		</div>
 		<!-- Bootstrap core JavaScript-->
@@ -310,6 +352,10 @@
 		<!-- Custom scripts for all pages-->
 		<script src="${js}/sb-admin.min.js"></script>
 	</div>
+
+
+
+
 </body>
 
 </html>
