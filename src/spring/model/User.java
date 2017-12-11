@@ -18,10 +18,10 @@ public class User {
 	@Column(name = "USER_NAME", unique = true, nullable = false)
 	private String user_name;
 
-	@Column(name = "FIRST_NAME")
+	@Column(name = "FIRST_NAME", nullable = false)
 	private String first_name;
 	
-	@Column(name = "LAST_NAME")
+	@Column(name = "LAST_NAME", nullable = false)
 	private String last_name;
 	
 	@NotNull
@@ -83,5 +83,9 @@ public class User {
 	
 	public void setCurrent_company(String current_company) {
 		this.current_company = current_company;
+	}
+
+	public Object getMatchingPassword() {
+		return password;
 	}
 }

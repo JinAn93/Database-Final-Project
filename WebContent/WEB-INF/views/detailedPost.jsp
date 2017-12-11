@@ -4,184 +4,312 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<html>
+<html lang="en">
+
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
-<spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
-<spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
-<script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Detailed Post</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>SB Admin - Start Bootstrap Template</title>
+<!-- Bootstrap core CSS-->
+<spring:url value="/resources/vendor" var="vendor" />
+<spring:url value="/resources/css" var="css" />
+<spring:url value="/resources/js" var="js" />
+<link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="${vendor}/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<!-- Page level plugin CSS-->
+<link href="${vendor}/datatables/dataTables.bootstrap4.css"
+	rel="stylesheet">
+<!-- Custom styles for this template-->
+<link href="${css}/sb-admin.css" rel="stylesheet">
 </head>
-<style>
 
-.action {
-	padding-top: 50px;
-	padding-right: 300px;
-    padding-left: 300px;
-}
-
-.postDetails {
-	margin-left: 300px;
-	margin-right: 300px;
-	border: 1px solid black;
-	width: 1000px; 
-	height: "500";
-}
-
-td, tr{
-	border: 1px solid black;
-}
-
-td:not(#contents) {
-	text-align: center;
-}
-
-.replies {
-	padding-right: 300px;
-    padding-left: 300px;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#editedReply {
-    padding-left: ${indentSize}px;
-}
-
-#postContents {
-	padding: 30px;
-}
-p {
-	line-height: 10px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-	text-indent: 
-}
-
-pre {
-	font-family: Helvetica;
-}
-</style>
-
-
-<body>
-	<%
-		String loggedinID = (String) session.getAttribute("user_id");
-		request.setAttribute("loggedinID", loggedinID);
-	%>
-	<!-- navbar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Dashboard</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="<c:url value='/dashboard' />">Home</a></li>
-				</ul>
-			</div>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+	<!-- Navigation-->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+		id="mainNav">
+		<a class="navbar-brand" href="index.html">Recruit Monster</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button"
+			data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Dashboard"><a class="nav-link" href="index.html"> <i
+						class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Dashboard</span>
+				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Charts"><a class="nav-link" href="charts.html"> <i
+						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">Charts</span>
+				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Tables"><a class="nav-link" href="tables.html"> <i
+						class="fa fa-fw fa-table"></i> <span class="nav-link-text">Tables</span>
+				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Components"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseComponents" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-wrench"></i> <span class="nav-link-text">Components</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseComponents">
+						<li><a href="navbar.html">Navbar</a></li>
+						<li><a href="cards.html">Cards</a></li>
+					</ul></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Example Pages"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseExamplePages" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-file"></i> <span class="nav-link-text">Example
+							Pages</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseExamplePages">
+						<li><a href="login.html">Login Page</a></li>
+						<li><a href="register.html">Registration Page</a></li>
+						<li><a href="forgot-password.html">Forgot Password Page</a></li>
+						<li><a href="blank.html">Blank Page</a></li>
+					</ul></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Menu Levels"><a
+					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
+					href="#collapseMulti" data-parent="#exampleAccordion"> <i
+						class="fa fa-fw fa-sitemap"></i> <span class="nav-link-text">Menu
+							Levels</span>
+				</a>
+					<ul class="sidenav-second-level collapse" id="collapseMulti">
+						<li><a href="#">Second Level Item</a></li>
+						<li><a href="#">Second Level Item</a></li>
+						<li><a href="#">Second Level Item</a></li>
+						<li><a class="nav-link-collapse collapsed"
+							data-toggle="collapse" href="#collapseMulti2">Third Level</a>
+							<ul class="sidenav-third-level collapse" id="collapseMulti2">
+								<li><a href="#">Third Level Item</a></li>
+								<li><a href="#">Third Level Item</a></li>
+								<li><a href="#">Third Level Item</a></li>
+							</ul></li>
+					</ul></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="Link"><a class="nav-link" href="#"> <i
+						class="fa fa-fw fa-link"></i> <span class="nav-link-text">Link</span>
+				</a></li>
+			</ul>
+			<ul class="navbar-nav sidenav-toggler">
+				<li class="nav-item"><a class="nav-link text-center"
+					id="sidenavToggler"> <i class="fa fa-fw fa-angle-left"></i>
+				</a></li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown"
+					href="#" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <i class="fa fa-fw fa-envelope"></i> <span
+						class="d-lg-none">Messages <span
+							class="badge badge-pill badge-primary">12 New</span>
+					</span> <span class="indicator text-primary d-none d-lg-block"> <i
+							class="fa fa-fw fa-circle"></i>
+					</span>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="messagesDropdown">
+						<h6 class="dropdown-header">New Messages:</h6>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <strong>David
+								Miller</strong> <span class="small float-right text-muted">11:21
+								AM</span>
+							<div class="dropdown-message small">Hey there! This new
+								version of SB Admin is pretty awesome! These messages clip off
+								when they reach the end of the box so they don't overflow over
+								to the sides!</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <strong>Jane Smith</strong>
+							<span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">I was wondering if you
+								could meet for an appointment at 3:00 instead of 4:00. Thanks!</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <strong>John Doe</strong> <span
+							class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">I've sent the final
+								files over to you for review. When you're able to sign off of
+								them let me know and we can discuss distribution.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item small" href="#">View all messages</a>
+					</div></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown"
+					href="#" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> <i class="fa fa-fw fa-bell"></i> <span
+						class="d-lg-none">Alerts <span
+							class="badge badge-pill badge-warning">6 New</span>
+					</span> <span class="indicator text-warning d-none d-lg-block"> <i
+							class="fa fa-fw fa-circle"></i>
+					</span>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="alertsDropdown">
+						<h6 class="dropdown-header">New Alerts:</h6>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <span class="text-success">
+								<strong> <i class="fa fa-long-arrow-up fa-fw"></i>Status
+									Update
+							</strong>
+						</span> <span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">This is an automated
+								server response message. All systems are online.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <span class="text-danger">
+								<strong> <i class="fa fa-long-arrow-down fa-fw"></i>Status
+									Update
+							</strong>
+						</span> <span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">This is an automated
+								server response message. All systems are online.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#"> <span class="text-success">
+								<strong> <i class="fa fa-long-arrow-up fa-fw"></i>Status
+									Update
+							</strong>
+						</span> <span class="small float-right text-muted">11:21 AM</span>
+							<div class="dropdown-message small">This is an automated
+								server response message. All systems are online.</div>
+						</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item small" href="#">View all alerts</a>
+					</div></li>
+				<li class="nav-item">
+					<form class="form-inline my-2 my-lg-0 mr-lg-2">
+						<div class="input-group">
+							<input class="form-control" type="text"
+								placeholder="Search for..."> <span
+								class="input-group-btn">
+								<button class="btn btn-primary" type="button">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</form>
+				</li>
+				<li class="nav-item"><a class="nav-link" data-toggle="modal"
+					data-target="#exampleModal"> <i class="fa fa-fw fa-sign-out"></i>Logout
+				</a></li>
+			</ul>
 		</div>
 	</nav>
-	<!-- navbar end -->
-	<div class="action">
-		<a href="dashboard"> Go Back to Dashboard</a>
+	<div class="content-wrapper">
+		<div class="container-fluid">
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">New Post</a></li>
+			</ol>
+			<div class="row">
+				<div class="col-12">
+					<h1>View Post</h1>
+						<table class="postForm">
+							<tr>
+								<td height="50" width="150"><label for="user_name">User
+										Name </label></td>
+								<td height="50" width="750">${post.user_name}</td>
+							</tr>
 
-		<c:choose>
-			<c:when test="${loggedinID == post.user_id}">
-				<a href="<c:url value='/edit-${post.id}-post' />">Edit</a>
-				<a href="<c:url value='/delete-${post.id}-post' />">Delete</a>
-			</c:when>
-		</c:choose>
-		<br>
-	</div>
-	
-	<table class="postDetails">
-		<tr>
-			<td width="150" height="45">Title</td>
-			<td colspan="3">${post.title}</td>
-		</tr>
-		<tr>
-			<td width="150" height="45">Date Posted</td>
-			<td width="450">${post.post_date}</td>
-			<td width="150" height="45">Created By</td>
-			<td>${post.user_id}</td>
-		</tr>
-		<tr>
-			<td rowspan="2" width="150" height="200">Contents</td>
-			<td id="postContents" rowspan="2" colspan="3"><pre>${post.contents}</pre></td>
-		</tr>
+							<tr>
+								<td height="50" width="150"><label for="company_name">Company
+										Name </label></td>
+								<td height="50" width="750">${post.company_name}</td>
+							</tr>
 
-	</table>
+							<tr>
+								<td height="50" width="150"><label for="company_rating">Company
+										Rating </label></td>
+								<td height="50" width="750">${post.company_rating}</td>
+							</tr>
 
-	<div class="replies">
-		<br>
-		<div class="replyHistory">
-			<c:forEach items="${replies}" var="onereply">
-				<c:set var="depthForEachReply" value="${onereply.depth}" />
-				<%
-					Integer indentSize = (Integer) (pageContext.getAttribute("depthForEachReply"));
-					request.setAttribute("indentSize", indentSize*40);
-				%>
-				<c:choose>
-					<c:when test="${editReplyPressed && onereply.id == clickedReplyID}">
-						<form:form id="editedReply" method="POST" modelAttribute="editReply">
-							<form:input size="75" path="contents" id="contents" value="${onereply.contents}" />
-							<form:input size="10" path="post_date" id="post_date" value="${onereply.post_date}" readOnly="true" />
-							<input type="submit" value="Edit"/>
-							<form:input path="parent_id" type="hidden" id="parent_id" value="${onereply.parent_id}" />
-							<form:input path="post_id" type="hidden" id="post_id" value="${onereply.post_id}" />
-							<form:input path="depth" type="hidden" id="depth" value="${onereply.depth}" />
-							<form:input path="id" type="hidden" id="id" value="${onereply.id}" />
-						</form:form>
-					</c:when>
-					<c:otherwise>
-						<p id="replyDisplay" style="text-indent: ${indentSize}px">${onereply.user_id}: ${onereply.contents} (${onereply.post_date})
-						<a href="<c:url value='/reply-${post.id}-${onereply.id}-${onereply.depth}-reply' />">Reply</a>
-						<c:choose>
-							<c:when test="${loggedinID == onereply.user_id}">
-							<a href="<c:url value='/edit-${post.id}-${onereply.id}-reply' />">Edit</a>
-							<a href="<c:url value='/delete-${post.id}-${onereply.id}-reply' />">Delete</a>
-							</c:when>
-						</c:choose>
-						</p>
-					</c:otherwise>
-				</c:choose>
-				<!--  This is where people could write reply of replies -->
-				<c:choose>
-					<c:when test="${recursiveReplyPressed && onereply.id == clickedReplyID}">
-						<form:form method="POST" modelAttribute="recursiveReply">
-							<form:input size="75" path="contents" id="contents" value="Write Your Reply Here!" />
-							<form:input size="10" path="post_date" id="post_date" value="${onereply.post_date}" readOnly="true" />
-							<input type="submit" value="Reply"/>
-							<form:input path="parent_id" type="hidden" id="parent_id" value="${clickedReplyID}" />
-							<form:input path="post_id" type="hidden" id="post_id" value="${post.id}" />
-							<form:input path="depth" type="hidden" id="depth" value="${replyDepth}" />
-						</form:form>
-					</c:when>
-				</c:choose>
-			</c:forEach>
+							<tr>
+								<td height="50" width="150"><label for="interview_result">Interview
+										Result </label></td>
+								<td height="50" width="750">${post.interview_result}</td>
+							</tr>
+
+							<tr>
+								<td height="100" width="150"><label for="content">Content
+								</label></td>
+								<td height="100" width="750">${post.content}</td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_year">Interview
+										Year </label></td>
+								<td height="50" width="750">${post.interview_year}</td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_season">Interview
+										Season </label></td>
+								<td height="50" width="750">${post.interview_season}</td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_position">Interview
+										Position </label></td>
+								<td height="50" width="750">${post.interview_position}</td>
+							</tr>
+						</table>
+				</div>
+			</div>
 		</div>
-			
-		<div id="newReplyRow">
-			<form:form method="POST" modelAttribute="reply">
-				<form:input size="75" path="contents" id="contents" value="Write Your Reply Here!" />
-				<form:input size="10" path="post_date" id="post_date" value="${reply.post_date}" readOnly="true" />
-				<input type="submit" value="Reply"/>
-				<form:input path="parent_id" type="hidden" id="parent_id" value="0" />
-				<form:input path="post_id" type="hidden" id="post_id" value="${post.id}" />
-				<form:input path="depth" type="hidden" id="depth" value="0" />
-			</form:form>
+		<!-- /.container-fluid-->
+		<!-- /.content-wrapper-->
+		<footer class="sticky-footer">
+			<div class="container">
+				<div class="text-center">
+					<small>Copyright © Your Website 2017</small>
+				</div>
+			</div>
+		</footer>
+		<!-- Scroll to Top Button-->
+		<a class="scroll-to-top rounded" href="#page-top"> <i
+			class="fa fa-angle-up"></i>
+		</a>
+		<!-- Logout Modal-->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Ready to
+							Leave?</h5>
+						<button class="close" type="button" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">×</span>
+						</button>
+					</div>
+					<div class="modal-body">Select "Logout" below if you are
+						ready to end your current session.</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button"
+							data-dismiss="modal">Cancel</button>
+						<a class="btn btn-primary" href="login.html">Logout</a>
+					</div>
+				</div>
+			</div>
 		</div>
+		<!-- Bootstrap core JavaScript-->
+		<script src="${vendor}/jquery/jquery.min.js"></script>
+		<script src="${vendor}/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<!-- Core plugin JavaScript-->
+		<script src="${vendor}/jquery-easing/jquery.easing.min.js"></script>
+		<!-- Custom scripts for all pages-->
+		<script src="${js}/sb-admin.min.js"></script>
 	</div>
 </body>
+
 </html>

@@ -5,59 +5,40 @@
 
 <html>
 <head>
-<spring:url value="/resources/jquery-1.11.1/" var="jquery" />
-<spring:url value="/resources/bootstrap/css" var="bootstrapCSS" />
-<spring:url value="/resources/bootstrap/js" var="bootstrapJS" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap.min.css" />
-<link rel="stylesheet" href="${bootstrapCSS}/bootstrap-theme.min.css" />
-<script src="${jquery}/jquery-1.11.1.min.js"></script>
-<script src="${bootstrapJS}/bootstrap.min.js"></script>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Success</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Sign Up</title>
+
+  <!-- Bootstrap core CSS-->
+  <spring:url value="/resources/vendor" var="vendor" />
+  <spring:url value="/resources/css" var="css" />
+  <spring:url value="/resources/js" var ="js" />
+  <link href="${vendor}/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="${vendor}/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="${vendor}/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="${css}/sb-admin.css" rel="stylesheet">
+
+<title>Registration Success</title>
 </head>
 
-<style>
-body {
-	text-align: center;
-	font-family: Helvetica;
-}
-</style>
-<body>
-	<!-- navbar -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Dashboard</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="<c:url value='/dashboard' />">Home</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- navbar end -->
-	
-	<h4>${success}</h4>
-	<br />
-	<%
-		String loggedinID = (String) session.getAttribute("user_id");
-		request.setAttribute("loggedinID", loggedinID);
-	%>
-	<c:choose>
-		<c:when test="${loggedinID != null}">
-			Go to <a href="dashboard">Dashboard</a>
-		</c:when>
-		<c:otherwise>
-			<a href="login">Login Here!</a>
-		</c:otherwise>
-	</c:choose>
-</body>
+
+<body class="bg-dark">
+  <div class="container">
+    <div class="card card-register mx-auto mt-5">
+      <div class="card-header">You have successfully created your account</div>
+      <div class="card-body">
+
+        <div class="text-center">
+          <a class="d-block" href="login">Login Here</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
 </html>
