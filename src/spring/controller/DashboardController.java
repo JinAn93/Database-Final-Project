@@ -49,9 +49,6 @@ public class DashboardController {
 	@Autowired
 	IFollowingUserService followingUserService;
 	
-	@Autowired
-	IUserService userService;
-
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(ModelMap model) {
 		// Add Login Logic (Spring security / Adding Cookies?) 
