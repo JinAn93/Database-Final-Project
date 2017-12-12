@@ -32,7 +32,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="index.html">Recruit Monster</a>
+		<a class="navbar-brand" href="dashboard">Recruit Monster</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"
@@ -42,18 +42,24 @@
 		<div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
-					title="Dashboard"><a class="nav-link" href="index.html"> <i
+					title="Dashboard"><a class="nav-link" href="dashboard"> <i
 						class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Dashboard</span>
 				</a></li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+      		  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Profile">
+          		<a class="nav-link" href="profile">
+            		<i class="fa fa-fw fa-file"></i>
+           		 <span class="nav-link-text">User Profile</span>
+          		</a>
+        	</li>
+<!--  				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Charts"><a class="nav-link" href="charts.html"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">Charts</span>
 				</a></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Tables"><a class="nav-link" href="tables.html"> <i
 						class="fa fa-fw fa-table"></i> <span class="nav-link-text">Tables</span>
-				</a></li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+				</a></li> -->
+<!--				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Components"><a
 					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
 					href="#collapseComponents" data-parent="#exampleAccordion"> <i
@@ -98,7 +104,7 @@
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Link"><a class="nav-link" href="#"> <i
 						class="fa fa-fw fa-link"></i> <span class="nav-link-text">Link</span>
-				</a></li>
+				</a></li> -->
 			</ul>
 			<ul class="navbar-nav sidenav-toggler">
 				<li class="nav-item"><a class="nav-link text-center"
@@ -205,6 +211,23 @@
 		</div>
 	</nav>
 	<div class="content-wrapper">
+		<%
+			Cookie cookie = null;
+			Cookie[] cookies = null;
+			cookies = request.getCookies();
+			
+			if( cookies != null ) {
+	            out.println("<h2> Found Cookies Name and Value</h2>");
+	            
+	            for (int i = 0; i < cookies.length; i++) {
+	               cookie = cookies[i];
+	               out.print("Name : " + cookie.getName( ) + ",  ");
+	               out.print("Value: " + cookie.getValue( )+" <br/>");
+	            }
+	         } else {
+	            out.println("<h2>No cookies founds</h2>");
+	         }
+		%>
 		<div class="container-fluid">
 			<!-- Breadcrumbs-->
 			<ol class="breadcrumb">
@@ -235,7 +258,7 @@
 							</thead>
 							<tbody>
 								<c:forEach items="${posts}" var="onepost">
-									<tr>
+									<tr onclick="window.location='view-${onepost.post_id}-post'">
 										<td>${onepost.user_name}</td>
 										<td>0</td>
 										<td>${onepost.company_name}</td>

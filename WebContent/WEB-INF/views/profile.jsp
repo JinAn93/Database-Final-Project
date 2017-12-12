@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<jsp:useBean id="DateTime" class="java.util.Date" />
 
 
 <!DOCTYPE html>
@@ -32,25 +35,25 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="dashboard">Dashboard</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="dashboard">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
-          <a class="nav-link" href="charts.html">
-            <i class="fa fa-fw fa-area-chart"></i>
-            <span class="nav-link-text">Charts</span>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Profile">
+          <a class="nav-link" href="profile">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">User Profile</span>
           </a>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
           <a class="nav-link" href="tables.html">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Tables</span>
@@ -120,13 +123,13 @@
               </ul>
             </li>
           </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+        </li> -->
+ <!--        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
           <a class="nav-link" href="#">
             <i class="fa fa-fw fa-link"></i>
             <span class="nav-link-text">Link</span>
           </a>
-        </li>
+        </li> -->
       </ul>
       <ul class="navbar-nav sidenav-toggler">
         <li class="nav-item">
@@ -237,9 +240,9 @@
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.html">Dashboard</a>
+          <a href="dashboard">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Blank Page</li>
+        <li class="breadcrumb-item active">User Profile</li>
       </ol>
       <div class="row">
         <div class="col-12">
@@ -252,22 +255,22 @@
 								<div class="profile card">
 									<div class="col-sm-12">
 										<div class="col-xs-12 col-sm-8">
-											<h2>Nicole Pearson</h2>
+											<h2>${User.first_name} ${User.last_name }</h2>
 											<p>
-												<strong>User Name: </strong> asdf25
+												<strong>User Name: </strong> ${User.user_name}
 											</p>
 											<p>
-												<strong>Email: </strong> email_tst@duke.edu
+												<strong>Email: </strong> ${User.email}
 											</p>
 											<p>
-												<strong>Current Company: </strong> Intel Corporation
+												<strong>Current Company: </strong> <c:out value="${empty User.current_company ? 'N/A' : User.current_company}" />
 											</p>
 										</div>
 									</div>
 									<div class="form-inline text-center">
 										<div class="col-xs-12 col-sm-4 emphasis">
 											<h2>
-												<strong> 20,7K </strong>
+												<strong> <c:out value="${empty NumFollowers ? '0' : NumFollowers}" /> </strong>
 											</h2>
 											<p>
 												<small>Followers</small>
@@ -275,7 +278,7 @@
 										</div>
 										<div class="col-xs-12 col-sm-4 emphasis">
 											<h2>
-												<strong>245</strong>
+												<strong>${fn:length(FollowedUsers)}</strong>
 											</h2>
 											<p>
 												<small>Following</small>
@@ -283,7 +286,7 @@
 										</div>
 										<div class="col-xs-12 col-sm-4 emphasis">
 											<h2>
-												<strong>43</strong>
+												<strong>${fn:length(Posts)}</strong>
 											</h2>
 											<p>
 												<small>Posts</small>
@@ -297,175 +300,85 @@
 										
 			<!-- End Profile -->
 			
-          <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+          <p></p>
           
-          <!-- Example Notifications Card-->
+          <!-- start recent posts-->
           <div class="card mb-3">
             <div class="card-header">
               <i class="fa fa-bell-o"></i> Recent Posts</div>
             <div class="list-group list-group-flush small">
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>David Miller</strong>posted a new article to
-                    <strong>David Miller Website</strong>.
-                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>Samantha King</strong>sent you a new message!
-                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <strong>Jeffery Wellings</strong>added a new photo to the album
-                    <strong>Beach</strong>.
-                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">
-                <div class="media">
-                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-                  <div class="media-body">
-                    <i class="fa fa-code-fork"></i>
-                    <strong>Monica Dennis</strong>forked the
-                    <strong>startbootstrap-sb-admin</strong>repository on
-                    <strong>GitHub</strong>.
-                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-                  </div>
-                </div>
-              </a>
-              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+            
+            <c:forEach items="${Posts}" var="Post" varStatus="i">
+            	<c:if test="${i.index < 9}"> 
+				    <a class="list-group-item list-group-item-action">
+	                <div class="media">
+	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
+	                  <div class="media-body">
+	                    <strong>${Post.user_name } </strong> posted about
+	                    <strong>${Post.company_name }</strong>.                    
+	                    <div class="text-muted smaller">${Post.post_date}</div>
+	                  </div>
+	                </div>
+	              </a>
+              </c:if>
+			</c:forEach>
+
+              <a class="list-group-item list-group-item-action" >View all activity...</a>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
           </div>
-          <!-- end notification -->
+          <!-- end recent posts -->
           
           <!-- start followed people and companies -->
           <div class="row">
           	<div class="col-md-6">
 	          	<div class="card mb-3">
 	            <div class="card-header">
-	              <i class="fa fa-bell-o"></i> Followed Users</div>
+	              <i class="fa fa-users"></i> Followed Users</div>
 	            <div class="list-group list-group-flush small">
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>David Miller</strong>posted a new article to
-	                    <strong>David Miller Website</strong>.
-	                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Samantha King</strong>sent you a new message!
-	                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Jeffery Wellings</strong>added a new photo to the album
-	                    <strong>Beach</strong>.
-	                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <i class="fa fa-code-fork"></i>
-	                    <strong>Monica Dennis</strong>forked the
-	                    <strong>startbootstrap-sb-admin</strong>repository on
-	                    <strong>GitHub</strong>.
-	                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <i class="fa fa-code-fork"></i>
-	                    <strong>adsf asdf</strong>forked the
-	                    <strong>startbootstrap-sb-admin</strong>repository on
-	                    <strong>GitHub</strong>.
-	                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-	                  </div>
-	                </div>
-	              </a>
+	            
+	            <c:forEach items="${FollowedUsers}" var="FollowedUser" varStatus="i">
+            		<c:if test="${i.index < 5}"> 
+					    <a class="list-group-item list-group-item-action" href="#">
+		                <div class="media">
+		                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/20x20" alt="">
+		                  <div class="media-body">
+		                    <strong>${FollowedUser.getFollowee()}</strong>
+		                  </div>
+		                </div>
+		              </a>
+              		</c:if>
+				</c:forEach>
+	            
+	   
+	              
 	              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
 	            </div>
-	            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+	            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
 	          </div>          
           	</div>
           	
           	<div class="col-md-6">
 	          	<div class="card mb-3">
 	            <div class="card-header">
-	              <i class="fa fa-bell-o"></i> Followed Companies</div>
+	              <i class="fa fa-building"></i> Followed Companies</div>
 	            <div class="list-group list-group-flush small">
-	              <a class="list-group-item list-group-item-action" href="#">
+	            
+	         <c:forEach items="${FollowedCompanies}" var="FollowedCompany" varStatus="i">
+            	<c:if test="${i.index < 5}"> 
+				    <a class="list-group-item list-group-item-action" href="#">
 	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
 	                  <div class="media-body">
-	                    <strong>David Miller</strong>posted a new article to
-	                    <strong>David Miller Website</strong>.
-	                    <div class="text-muted smaller">Today at 5:43 PM - 5m ago</div>
+	                    <strong>${FollowedCompany.getCompany_name()}</strong>
 	                  </div>
 	                </div>
 	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Samantha King</strong>sent you a new message!
-	                    <div class="text-muted smaller">Today at 4:37 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <strong>Jeffery Wellings</strong>added a new photo to the album
-	                    <strong>Beach</strong>.
-	                    <div class="text-muted smaller">Today at 4:31 PM - 1hr ago</div>
-	                  </div>
-	                </div>
-	              </a>
-	              <a class="list-group-item list-group-item-action" href="#">
-	                <div class="media">
-	                  <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
-	                  <div class="media-body">
-	                    <i class="fa fa-code-fork"></i>
-	                    <strong>Monica Dennis</strong>forked the
-	                    <strong>startbootstrap-sb-admin</strong>repository on
-	                    <strong>GitHub</strong>.
-	                    <div class="text-muted smaller">Today at 3:54 PM - 2hrs ago</div>
-	                  </div>
-	                </div>
-	              </a>
+              </c:if>
+			</c:forEach>
+	         
 	              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
 	            </div>
-	            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+	            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
 	          </div>
           	</div>
           
