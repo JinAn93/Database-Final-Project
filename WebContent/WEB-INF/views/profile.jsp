@@ -35,7 +35,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="dashboard">Dashboard</a>
+    <a class="navbar-brand" href="dashboard">Recruit Monster</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -228,7 +228,7 @@
           <!-- start recent posts-->
           <div class="card mb-3">
             <div class="card-header">
-              <i class="fa fa-bell-o"></i> Recent Posts</div>
+              <i class="fa fa-comments"></i> Recent Posts</div>
             <div class="list-group list-group-flush small">
             
             <c:forEach items="${Posts}" var="Post" varStatus="i">
@@ -246,7 +246,7 @@
               </c:if>
 			</c:forEach>
 
-              <a class="list-group-item list-group-item-action" >View all activity...</a>
+              <a class="list-group-item list-group-item-action" >View more posts...</a>
             </div>
             <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
           </div>
@@ -275,7 +275,7 @@
 	            
 	   
 	              
-	              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+	              <a class="list-group-item list-group-item-action" >View more...</a>
 	            </div>
 	            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
 	          </div>          
@@ -299,7 +299,7 @@
               </c:if>
 			</c:forEach>
 	         
-	              <a class="list-group-item list-group-item-action" href="#">View all activity...</a>
+	              <a class="list-group-item list-group-item-action" >View more...</a>
 	            </div>
 	            <div class="card-footer small text-muted"> Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /> </div>
 	          </div>
