@@ -45,6 +45,10 @@
 					title="Dashboard"><a class="nav-link" href="dashboard"> <i
 						class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Dashboard</span>
 				</a></li>
+				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+					title="profile"><a class="nav-link" href="profile"> <i
+						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">My Profile</span>
+				</a></li>
 <!-- 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
       		  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Profile">
           		<a class="nav-link" href="profile">
@@ -305,8 +309,6 @@
 					<div class="modal-body">Select "Logout" below if you are
 						ready to end your current session.</div>
 					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button"
-							data-dismiss="modal">Cancel</button>
 						<form:form action="logout" modelAttribute="user" method="GET">
 							<button class="btn btn-primary" type="submit">Logout</button>
 						</form:form>
