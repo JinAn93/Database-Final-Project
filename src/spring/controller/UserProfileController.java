@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import spring.model.FollowingCompany;
 import spring.model.FollowingUser;
 import spring.model.Post;
 import spring.model.User;
@@ -39,8 +40,8 @@ public class UserProfileController {
 	public String userProfilePage(@CookieValue("user_name") String user_name, ModelMap model) {
 		User user = userService.findById(user_name);			
 		List<Post> postsList = postService.findPostsByUserName(user.getUser_name());
-		//TODO Fix dao/model for company and follower; cant cast BigInt to long for follower and sql exception for company since column names not correct
-//		List<FollowingCompany> followedCompaniesList = followingCompanyService.findFollowingCompanyByUserName(user.getUser_name());
+		//TODO Fix dao/model for company and follower; sql exception for company since column names not correct
+		List<FollowingCompany> followedCompaniesList = followingCompanyService.findFollowingCompanyByUserName(user.getUser_name());
 		List<FollowingUser> followingUsers = followingUserService.findFollowingUserByFollower(user.getUser_name());
 		Long NumFollowers = followingUserService.countFollowingUserByFollowee(user.getUser_name());
 		
@@ -53,7 +54,7 @@ public class UserProfileController {
 		});
 		model.addAttribute("User", user);	
 		model.addAttribute("Posts", postsList);
-//		model.addAttribute("FollowedCompanies", followedCompaniesList);
+		model.addAttribute("FollowedCompanies", followedCompaniesList);
 		model.addAttribute("FollowedUsers", followingUsers);
 		model.addAttribute("NumFollowers", NumFollowers);
 		return "profile";

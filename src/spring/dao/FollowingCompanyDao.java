@@ -28,7 +28,7 @@ public class FollowingCompanyDao extends AbstractDao<UserCompanyPK, FollowingCom
 	}
 	
 	public void deleteFollowingCompany(String user_name, String company_name) {
-		Query query = getSession().createSQLQuery("delete from Following_Company where user_name = :user_name and company_name = :company_name");
+		Query query = getSession().createSQLQuery("delete from Following_Company where follower = :user_name and company_name = :company_name");
 		query.setString("user_name", user_name);
 		query.setString("company_name",  company_name);
 		query.executeUpdate();
@@ -36,7 +36,7 @@ public class FollowingCompanyDao extends AbstractDao<UserCompanyPK, FollowingCom
 	
 	@SuppressWarnings("unchecked")
 	public List<FollowingCompany> findFollowingCompanyByUserName(String user_name) {
-		Query query = getSession().createSQLQuery("select * from Following_Company where user_name = :user_name").addEntity(FollowingCompany.class);
+		Query query = getSession().createSQLQuery("select * from Following_Company where follower = :user_name").addEntity(FollowingCompany.class);
 		query.setString("user_name", user_name);
 		return (List<FollowingCompany>) query.list();
 	}
@@ -49,7 +49,7 @@ public class FollowingCompanyDao extends AbstractDao<UserCompanyPK, FollowingCom
 	}
 	
 	public Long countFollowingCompanyByUserName(String user_name) {
-		Query query = getSession().createSQLQuery("select count(*) from Following_Company where user_name = :user_name");
+		Query query = getSession().createSQLQuery("select count(*) from Following_Company where follower = :user_name");
 		query.setString("user_name", user_name);
 		return ((BigInteger) query.uniqueResult()).longValue();
 	}
