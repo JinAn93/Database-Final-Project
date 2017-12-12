@@ -39,7 +39,7 @@ public class PostAndFeedbackController {
 		model.addAttribute("postFeedbacks", postFeedbackService.findPostFeedbacksByPostID(post_id));
 		return "detailedPost";
 	}
-
+	
 	@RequestMapping(value = { "/view-{post_id}-post" }, method = RequestMethod.POST)
 	public String savePost(@PathVariable int post_id, @Valid PostFeedback postFeedback, BindingResult result,
 			ModelMap model) {
@@ -56,7 +56,8 @@ public class PostAndFeedbackController {
 		model.addAttribute("postFeedback", new PostFeedback());
 		model.addAttribute("postFeedbacks", postFeedbackService.findPostFeedbacksByPostID(post_id));
 
-		return "detailedPost";
+		model.addAttribute("successNewPostFeedback", "New Post has been saved!");
+		return "successNewPostFeedback";
 	}
 
 	@RequestMapping(value = { "/edit-{post_id}-post" }, method = RequestMethod.GET)

@@ -124,7 +124,6 @@ public class DashboardController {
 				}
 			}
 		}
-		model.addAttribute("success", "New Post has been saved!");
-		return "success";
+		return "successNewPost";
 	}
 }
