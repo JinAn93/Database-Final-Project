@@ -7,18 +7,13 @@ import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import spring.model.Company;
 import spring.model.FollowingCompany;
@@ -35,7 +30,6 @@ import spring.util.Utils;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("user_id")
 public class DashboardController {
 
 	@Autowired
@@ -54,20 +48,17 @@ public class DashboardController {
 	IFollowingUserService followingUserService;
 	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-	public String listPosts(@CookieValue("user_name") String user_name, ModelMap model) {
-		// Add Login Logic (Spring security / Adding Cookies?) 
+	public String listPosts(@CookieValue(value="user_name", required=false) String user_name, ModelMap model) {
+		if (user_name == null)
+			return "redirect:/login";
 		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}
 	
-//	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-//	public String listUsers(ModelMap model) {
-//		model.addAttribute("feedbacks", userService.findAllUsers());
-//		return "dashboard";
-//	}
-
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)
-	public String newPost(ModelMap model) {
+	public String newPost(@CookieValue(value="user_name", required=false) String user_name, ModelMap model) {
+		if (user_name == null)
+			return "redirect:/login";
 		model.addAttribute("post", new Post());
 		return "newPost";
 	}
@@ -134,25 +125,5 @@ public class DashboardController {
 		}
 		model.addAttribute("success", "New Post has been saved!");
 		return "success";
-	}
-	
-	@RequestMapping(value = { "/edit-{id}-post" }, method = RequestMethod.POST)
-	public String updatePost(@Valid Post post, BindingResult result, ModelMap model, @PathVariable int id) {
-		if (result.hasErrors()) {
-			return "newPost";
-		}
-
-		postService.updatePost(post);
-		model.addAttribute("success", "The post has been successfully editted");
-		return "success";
-	}
-
-	@RequestMapping(value = { "/delete-{id}-post" }, method = RequestMethod.GET)
-	public String deletePost(@PathVariable int id, ModelMap model) {
-		if (model.containsAttribute("user_id")) {
-			postService.deletePostByID(id);
-			return "redirect:/dashboard";
-		}
-		return "redirect:/login";
 	}
 }

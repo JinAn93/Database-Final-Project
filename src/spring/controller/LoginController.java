@@ -37,11 +37,10 @@ public class LoginController {
 	MessageSource messageSource;
 
 	@RequestMapping(value = { "/", "/login" }, method = RequestMethod.GET)
-	public String loginPage(ModelMap model) {
-		if (model.containsAttribute("user_name"))
-			return "redirect:/dashboard";
-		model.addAttribute("user", new User());
-		return "loginPage";
+	public String loginPage(@CookieValue(value="user_name", required=false) String user_name, ModelMap model) {
+		if (user_name == null)
+			return "loginPage";
+		return "redirect:/dashboard";
 	}
 
 
