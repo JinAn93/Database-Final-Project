@@ -52,6 +52,7 @@ public class DashboardController {
 		System.out.println(user_name);
 		if (user_name == null || user_name.length() == 0)
 			return "redirect:/login";
+		
 		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
 	}

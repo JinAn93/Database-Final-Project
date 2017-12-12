@@ -74,6 +74,11 @@ public class LoginController {
 			result.addError(createError("user_name", "non.unique.user_name", user.getUser_name()));
 			return "registration";
 		}
+		
+		if (!user.getEmail().endsWith("@duke.edu")) {
+			result.addError(createError("email", "non.duke.email", user.getEmail()));
+			return "registration";
+		}	
 
 		int errorType = userService.isPasswordValid(user.getPassword());
 
