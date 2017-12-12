@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import spring.model.PostFeedback;
 import spring.model.Reply;
 import spring.service.IPostFeedbackService;
 import spring.service.IPostService;
@@ -38,10 +39,29 @@ public class PostAndFeedbackController {
 	@RequestMapping(value = { "/view-{post_id}-post" }, method = RequestMethod.GET)
 	public String viewPost(@PathVariable int post_id, ModelMap model) {
 		model.addAttribute("post", postService.findById(post_id));
+		model.addAttribute("postFeedback", new PostFeedback());
 		model.addAttribute("postFeedbacks", postFeedbackService.findPostFeedbacksByPostID(post_id));
 		return "detailedPost";
 	}
 
+	@RequestMapping(value = { "/view-{post_id}-post" }, method = RequestMethod.POST)
+	public String savePost(@PathVariable int post_id, @Valid PostFeedback postFeedback, BindingResult result,
+			ModelMap model) {
+		if (result.hasErrors()) {
+			model.addAttribute("post", postService.findById(post_id));
+			model.addAttribute("postFeedback", new PostFeedback());
+			model.addAttribute("postFeedbacks", postFeedbackService.findPostFeedbacksByPostID(post_id));
+			return "detailedPost";
+		}
+
+		postFeedbackService.savePostFeedback(postFeedback);
+
+		model.addAttribute("post", postService.findById(post_id));
+		model.addAttribute("postFeedback", new PostFeedback());
+		model.addAttribute("postFeedbacks", postFeedbackService.findPostFeedbacksByPostID(post_id));
+
+		return "detailedPost";
+	}
 
 	@RequestMapping(value = { "/edit-{id}-post" }, method = RequestMethod.GET)
 	public String editPost(@PathVariable int id, ModelMap model) {

@@ -1,5 +1,6 @@
 package spring.dao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -50,12 +51,12 @@ public class FollowingUserDao extends AbstractDao<FollowerFolloweePK, FollowingU
 	public Long countFollowingUserByFollower(String follower) {
 		Query query = getSession().createSQLQuery("select count(*) from Following_User where follower = :follower");
 		query.setString("follower",follower);
-		return (Long) query.uniqueResult();
+		return ((BigInteger) query.uniqueResult()).longValue();
 	}
 	
 	public Long countFollowingUserByFollowee(String followee) {
 		Query query = getSession().createSQLQuery("select count(*) from Following_User where followee = :followee");
 		query.setString("followee", followee);
-		return (Long) query.uniqueResult();
+		return ((BigInteger) query.uniqueResult()).longValue();
 	}
 }

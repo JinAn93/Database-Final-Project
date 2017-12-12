@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 public class UserCompanyPK implements Serializable {
 	
 	@NotNull
-	@Column(name = "user_name")
+	@Column(name = "follower")
 	private String user_name;
 	
 	@NotNull
