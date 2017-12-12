@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,13 +36,8 @@ public class UserProfileController {
 	IFollowingUserService followingUserService;
 	
 	@RequestMapping(value =  "/profile", method = RequestMethod.GET)
-	public String userProfilePage(ModelMap model) {
-		//TODO redirect to dashboard if user not logged in
-//		if (model.containsAttribute("user_id")) {
-//			return "redirect:/dashboard";
-//		}
-		//TODO link user name
-		User user = userService.findById("root");			
+	public String userProfilePage(@CookieValue("user_name") String user_name, ModelMap model) {
+		User user = userService.findById(user_name);			
 		List<Post> postsList = postService.findPostsByUserName(user.getUser_name());
 		//TODO Fix dao/model for company and follower; cant cast BigInt to long for follower and sql exception for company since column names not correct
 //		List<FollowingCompany> followedCompaniesList = followingCompanyService.findFollowingCompanyByUserName(user.getUser_name());
