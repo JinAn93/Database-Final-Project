@@ -25,6 +25,8 @@ public class UserService implements IUserService {
 	private static final int UPPERCASE_ERROR = 3;
 	private static final int SPECIAL_CHAR_ERROR = 4;
 	private static final int WHITESPACE_ERROR = 5;
+	private static final int LENGTH_ERROR = 6;
+
 	
 	public User findById(String id) {
 		return dao.findById(id);
@@ -66,14 +68,15 @@ public class UserService implements IUserService {
 			return DIGIT_ERROR;
 		if(!password.matches("(?=.*[a-z]).+"))
 			return LOWERCASE_ERROR;
-		if(!password.matches("(?=.*[a-z]).+"))
+		if(!password.matches("(?=.*[A-Z]).+"))
 			return UPPERCASE_ERROR;
-		if(!password.matches("(?=.*[!@#$%^&*+=?-_()/\"\\.,<>~`;:]).+"))
+		if(!password.matches("(?=.*[$@$!%*?&]).+"))
 			return SPECIAL_CHAR_ERROR;
-		if(!password.matches("(?=\\S+$).+"))
-			return WHITESPACE_ERROR;
+//		if(!password.matches("(?=\\\\S+$).+"))
+//			return WHITESPACE_ERROR;
+//		if (!password.matches("\\w{10,}"))
+//			return LENGTH_ERROR;
 		return NO_ERROR;
-
 	}
 	
 	public boolean isValidUser(String user_name, String password) {
