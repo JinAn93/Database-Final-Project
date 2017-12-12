@@ -81,18 +81,20 @@ public class LoginController {
 			switch (errorType) {
 			case 1:
 				result.addError(createError("password", "non.digit.password", user.getPassword()));
-
+				System.out.println(1);
 			case 2:
 				result.addError(createError("password", "non.lower.password", user.getPassword()));
-
+				System.out.println(2);
 			case 3:
 				result.addError(createError("password", "non.upper.password", user.getPassword()));
-
+				System.out.println(3);
 			case 4:
 				result.addError(createError("password", "non.special.password", user.getPassword()));
-				
+				System.out.println(4);
 			case 5:
 				result.addError(createError("password", "non.whitespace.password", user.getPassword()));
+			case 6:
+				result.addError(createError("password", "non.length.password", user.getPassword()));
 			}
 			return "registration";
 		}

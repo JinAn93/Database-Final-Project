@@ -32,7 +32,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
 		id="mainNav">
-		<a class="navbar-brand" href="index.html">Recruit Monster</a>
+		<a class="navbar-brand" href="dashboard">Recruit Monster</a>
 		<button class="navbar-toggler navbar-toggler-right" type="button"
 			data-toggle="collapse" data-target="#navbarResponsive"
 			aria-controls="navbarResponsive" aria-expanded="false"
@@ -46,14 +46,21 @@
 						class="fa fa-fw fa-dashboard"></i> <span class="nav-link-text">Dashboard</span>
 				</a></li>
 <!-- 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+      		  <li class="nav-item" data-toggle="tooltip" data-placement="right" title="User Profile">
+          		<a class="nav-link" href="profile">
+            		<i class="fa fa-fw fa-file"></i>
+           		 <span class="nav-link-text">User Profile</span>
+          		</a>
+        	</li>
+<!--  				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Charts"><a class="nav-link" href="charts.html"> <i
 						class="fa fa-fw fa-area-chart"></i> <span class="nav-link-text">Charts</span>
 				</a></li>
 				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Tables"><a class="nav-link" href="tables.html"> <i
 						class="fa fa-fw fa-table"></i> <span class="nav-link-text">Tables</span>
-				</a></li>
-				<li class="nav-item" data-toggle="tooltip" data-placement="right"
+				</a></li> -->
+<!--				<li class="nav-item" data-toggle="tooltip" data-placement="right"
 					title="Components"><a
 					class="nav-link nav-link-collapse collapsed" data-toggle="collapse"
 					href="#collapseComponents" data-parent="#exampleAccordion"> <i
@@ -274,7 +281,7 @@
 		<footer class="sticky-footer">
 			<div class="container">
 				<div class="text-center">
-					<small>Copyright © Your Website 2017</small>
+					<small>Copyright © Recruit Monster 2017</small>
 				</div>
 			</div>
 		</footer>
