@@ -37,7 +37,10 @@ public class UserProfileController {
 	IFollowingUserService followingUserService;
 	
 	@RequestMapping(value =  "/profile", method = RequestMethod.GET)
-	public String userProfilePage(@CookieValue("user_name") String user_name, ModelMap model) {
+	public String userProfilePage(@CookieValue(value="user_name", required=false) String user_name, ModelMap model) {
+		if (user_name == null || user_name.length() == 0) {
+			return "redirect:/login";
+		}
 		User user = userService.findById(user_name);			
 		List<Post> postsList = postService.findPostsByUserName(user.getUser_name());
 		//TODO Make jsp page left hand bar same for profile page
