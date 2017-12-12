@@ -42,7 +42,7 @@ public class UserProfileController {
 		//TODO Fix dao/model for company and follower; cant cast BigInt to long for follower and sql exception for company since column names not correct
 //		List<FollowingCompany> followedCompaniesList = followingCompanyService.findFollowingCompanyByUserName(user.getUser_name());
 		List<FollowingUser> followingUsers = followingUserService.findFollowingUserByFollower(user.getUser_name());
-//		Long NumFollowers = followingUserService.countFollowingUserByFollowee(user.getUser_name());
+		Long NumFollowers = followingUserService.countFollowingUserByFollowee(user.getUser_name());
 		
 		Collections.sort(postsList, new Comparator<Post>() {
 			@Override
@@ -55,7 +55,7 @@ public class UserProfileController {
 		model.addAttribute("Posts", postsList);
 //		model.addAttribute("FollowedCompanies", followedCompaniesList);
 		model.addAttribute("FollowedUsers", followingUsers);
-//		model.addAttribute("NumFollowers", NumFollowers);
+		model.addAttribute("NumFollowers", NumFollowers);
 		return "profile";
 	}
 }
