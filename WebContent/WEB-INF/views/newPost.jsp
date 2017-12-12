@@ -206,6 +206,19 @@
 		</div>
 	</nav>
 	<div class="content-wrapper">
+	<%
+ 			Cookie cookie = null;
+ 			Cookie[] cookies = null;
+ 			cookies = request.getCookies();
+ 			String user_name = "";
+ 			if(cookies != null) {
+ 	            for (int i = 0; i < cookies.length; i++) {
+	               cookie = cookies[i];
+ 	               if (cookie.getName().equals("user_name"))
+ 	            	   request.setAttribute("user_name", cookie.getValue());
+ 	               }
+ 	         }
+ 		%>
 		<div class="container-fluid">
 			<!-- Breadcrumbs-->
 			<ol class="breadcrumb">
@@ -217,11 +230,11 @@
 					<form:form method="POST" modelAttribute="post" action="newPost"
 						onkeypress="return entercheck(event)">
 						<table class="postForm">
-							<tr>
+							<tr style="display:none;">
 								<td height="50" width="150"><label for="user_name">User
 										Name </label></td>
 								<td height="50" width="750"><form:input style="width: 500px" path="user_name"
-										id="user_name" /></td>
+										id="user_name" value="${user_name}"/></td>
 								<td height="50" width="100"><form:errors path="user_name"
 										cssClass="error" /></td>
 							</tr>
