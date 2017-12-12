@@ -6,12 +6,16 @@ import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.validation.Valid;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,8 +46,9 @@ public class LoginController {
 
 
 	@RequestMapping(value = {"/login" }, method = RequestMethod.POST)
-	public String login(@Valid User user, BindingResult result, WebRequest request, ModelMap model) {
+	public String login(@Valid User user, BindingResult result, WebRequest request, HttpServletResponse response, ModelMap model) {
 		if (userService.isValidUser(user.getUser_name(), user.getPassword())) {
+			response.addCookie(new Cookie("user_name", user.getUser_name()));
 			return "redirect:/dashboard";
 		}
 		
