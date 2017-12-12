@@ -32,8 +32,6 @@
 </head>
 
 <body class="bg-dark">
-  <c:choose>
-	<c:when test="${loggedinID == null}">
       <div class="container">
     		<div class="card card-login mx-auto mt-5">
       		  <div class="card-header">Login</div>
@@ -58,11 +56,4 @@
         	  </div>
         	</div>
         </div>		
-      </c:when>
-		<c:otherwise>
-			<%
-				response.sendRedirect("http://localhost:8080/Basic-Dashboard-Project/dashboard");
-			%>
-		</c:otherwise>
-	</c:choose>
 </body>

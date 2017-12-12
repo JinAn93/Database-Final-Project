@@ -49,7 +49,8 @@ public class DashboardController {
 	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String listPosts(@CookieValue(value="user_name", required=false) String user_name, ModelMap model) {
-		if (user_name == null)
+		System.out.println(user_name);
+		if (user_name == null || user_name.length() == 0)
 			return "redirect:/login";
 		model.addAttribute("posts", postService.findAllPosts());
 		return "dashboard";
@@ -57,7 +58,7 @@ public class DashboardController {
 	
 	@RequestMapping(value = "/newPost", method = RequestMethod.GET)
 	public String newPost(@CookieValue(value="user_name", required=false) String user_name, ModelMap model) {
-		if (user_name == null)
+		if (user_name == null || user_name.length() == 0)
 			return "redirect:/login";
 		model.addAttribute("post", new Post());
 		return "newPost";

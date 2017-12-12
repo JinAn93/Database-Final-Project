@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import spring.model.Post;
 import spring.model.PostFeedback;
-import spring.model.Reply;
 import spring.service.IPostFeedbackService;
 import spring.service.IPostService;
 import spring.service.IReplyService;
@@ -32,7 +31,9 @@ public class PostAndFeedbackController {
 	IPostFeedbackService postFeedbackService;
 
 	@RequestMapping(value = { "/view-{post_id}-post" }, method = RequestMethod.GET)
-	public String viewPost(@PathVariable int post_id, ModelMap model) {
+	public String viewPost(@CookieValue(value="user_name", required=false) String user_name, @PathVariable int post_id, ModelMap model) {
+		if (user_name == null)
+			return "redirect:/login";
 		model.addAttribute("post", postService.findById(post_id));
 		model.addAttribute("postFeedback", new PostFeedback());
 		model.addAttribute("postFeedbacks", postFeedbackService.findPostFeedbacksByPostID(post_id));
@@ -59,7 +60,9 @@ public class PostAndFeedbackController {
 	}
 
 	@RequestMapping(value = { "/edit-{post_id}-post" }, method = RequestMethod.GET)
-	public String editPost(@PathVariable int post_id, ModelMap model) {
+	public String editPost(@CookieValue(value="user_name", required=false) String user_name, @PathVariable int post_id, ModelMap model) {
+		if (user_name == null)
+			return "redirect:/login";
 		model.addAttribute("post", postService.findById(post_id));
 		return "editPost";
 	}
@@ -78,8 +81,10 @@ public class PostAndFeedbackController {
 	}
 	
 	@RequestMapping(value = { "/delete-{post_id}-post"}, method = RequestMethod.GET)
-	public String deletePost(@PathVariable int post_id, ModelMap model) {
+	public String deletePost(@CookieValue(value="user_name", required=false) String user_name, @PathVariable int post_id, ModelMap model) {
+		if (user_name == null)
+			return "redirect:/login";
 		postService.deletePostByID(post_id);
-		return "dashboard";
+		return "redirect:/dashboard";
 	}
 }
