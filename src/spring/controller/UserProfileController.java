@@ -40,7 +40,7 @@ public class UserProfileController {
 	public String userProfilePage(@CookieValue("user_name") String user_name, ModelMap model) {
 		User user = userService.findById(user_name);			
 		List<Post> postsList = postService.findPostsByUserName(user.getUser_name());
-		//TODO Fix dao/model for company and follower; sql exception for company since column names not correct
+		//TODO Make jsp page left hand bar same for profile page
 		List<FollowingCompany> followedCompaniesList = followingCompanyService.findFollowingCompanyByUserName(user.getUser_name());
 		List<FollowingUser> followingUsers = followingUserService.findFollowingUserByFollower(user.getUser_name());
 		Long NumFollowers = followingUserService.countFollowingUserByFollowee(user.getUser_name());
