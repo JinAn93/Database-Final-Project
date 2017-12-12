@@ -3,6 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<jsp:useBean id="DateTime" class="java.util.Date" />
+
 
 <html lang="en">
 <head>
@@ -197,8 +201,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="card-footer small text-muted">Updated yesterday at
-					11:59 PM</div>
+				<div class="card-footer small text-muted">Updated at <fmt:formatDate value="${DateTime}" pattern="h:mm a ' on ' MM-dd-yyyy" /></div>
 			</div>
 		</div>
 		<!-- /.container-fluid-->
