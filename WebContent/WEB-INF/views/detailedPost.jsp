@@ -290,18 +290,51 @@
 							</table>
 						</div>
 					</div>
-					<table>
-						<tr>
-							<td height="50" width="150"><label for="comment">Comment</label>
-							</td>
-							<td height="50" width="750"><input id="comment"
-								name="comment" style="width: 500px; height: 250px;" type="text"
-								value></td>
-							<td>
-							<td height="50" width="100"></td>
 
-						</tr>
-					</table>
+					<h1>Your Post Feedback</h1>
+					<form:form method="POST" modelAttribute="postFeedback"
+						action="view-${post.post_id}-post">
+						<table class="postFeedbackForm">
+							<tr>
+								<td height="50" width="150"><label for="user_name">User
+										Name </label></td>
+								<td height="50" width="750"><form:input
+										style="width: 500px" path="user_name" id="user_name" /></td>
+								<td height="50" width="100"><form:errors path="user_name"
+										cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="rating">Rating</label></td>
+								<td height="50" width="750"><form:input
+										style="width: 500px" path="rating" id="rating" /></td>
+								<td height="50" width="100"><form:errors path="rating"
+										cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="comment">Comment</label></td>
+								<td height="50" width="750"><form:input
+										style="width: 500px" path="comment" id="comment" /></td>
+								<td height="50" width="100"><form:errors path="comment"
+										cssClass="error" /></td>
+							</tr>
+
+							<tr style="display: none;">
+								<td height="50" width="150"><label for="post_id">Post
+										ID</label></td>
+								<td height="50" width="750"><form:input
+										style="width: 500px" path="post_id" id="post_id"
+										value="${ post.post_id }" /></td>
+								<td height="50" width="100"><form:errors path="post_id"
+										cssClass="error" /></td>
+							</tr>
+
+
+						</table>
+						<button type="submit">Submit Feedback</button>
+					</form:form>
+
 				</div>
 			</div>
 		</div>
@@ -338,10 +371,7 @@
 							data-dismiss="modal">Cancel</button>
 						<a class="btn btn-primary" href="login.html">Logout</a>
 					</div>
-
 				</div>
-
-
 			</div>
 		</div>
 		<!-- Bootstrap core JavaScript-->
@@ -352,10 +382,6 @@
 		<!-- Custom scripts for all pages-->
 		<script src="${js}/sb-admin.min.js"></script>
 	</div>
-
-
-
-
 </body>
 
 </html>
