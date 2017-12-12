@@ -13,7 +13,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<title>SB Admin - Start Bootstrap Template</title>
+<title>New Post</title>
 <!-- Bootstrap core CSS-->
 <spring:url value="/resources/vendor" var="vendor" />
 <spring:url value="/resources/css" var="css" />
@@ -89,7 +89,7 @@
 						<li><a href="#">Second Level Item</a></li>
 						<li><a href="#">Second Level Item</a></li>
 						<li><a class="nav-link-collapse collapsed"
-							data-toggle="collapse" href="#collapseMulti2">Third Level</a> x`
+							data-toggle="collapse" href="#collapseMulti2">Third Level</a>
 							<ul class="sidenav-third-level collapse" id="collapseMulti2">
 								<li><a href="#">Third Level Item</a></li>
 								<li><a href="#">Third Level Item</a></li>
@@ -206,7 +206,7 @@
 		</div>
 	</nav>
 	<div class="content-wrapper">
-		<%
+	<%
  			Cookie cookie = null;
  			Cookie[] cookies = null;
  			cookies = request.getCookies();
@@ -220,136 +220,107 @@
  	         }
  		%>
 		<div class="container-fluid">
-			<a href="newPost">New</a>
-			<c:if test="${user_name == post.user_name}">
-				<a href="delete-${post.post_id}-post">Delete</a>
-				<a href="edit-${post.post_id}-post">Edit</a>
-			</c:if>
+			<!-- Breadcrumbs-->
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="index.html">New Post</a></li>
+			</ol>
 			<div class="row">
 				<div class="col-12">
-					<h1>View Post</h1>
-					<table class="postForm">
-						<tr>
-							<td height="50" width="150"><label for="user_name">User
-									Name </label></td>
-							<td height="50" width="750">${post.user_name}</td>
-						</tr>
-
-						<tr>
-							<td height="50" width="150"><label for="company_name">Company
-									Name </label></td>
-							<td height="50" width="750">${post.company_name}</td>
-						</tr>
-
-						<tr>
-							<td height="50" width="150"><label for="company_rating">Company
-									Rating </label></td>
-							<td height="50" width="750">${post.company_rating}</td>
-						</tr>
-
-						<tr>
-							<td height="50" width="150"><label for="interview_result">Interview
-									Result </label></td>
-							<td height="50" width="750">${post.interview_result}</td>
-						</tr>
-
-						<tr>
-							<td height="100" width="150"><label for="content">Content
-							</label></td>
-							<td height="100" width="750">${post.content}</td>
-						</tr>
-
-						<tr>
-							<td height="50" width="150"><label for="interview_year">Interview
-									Year </label></td>
-							<td height="50" width="750">${post.interview_year}</td>
-						</tr>
-
-						<tr>
-							<td height="50" width="150"><label for="interview_season">Interview
-									Season </label></td>
-							<td height="50" width="750">${post.interview_season}</td>
-						</tr>
-
-						<tr>
-							<td height="50" width="150"><label for="interview_position">Interview
-									Position </label></td>
-							<td height="50" width="750">${post.interview_position}</td>
-						</tr>
-					</table>
-
-					<div class="card mb-3">
-						<div class="card-header">
-							<i class="fa fa-table"></i> Post Feedbacks
-						</div>
-						<div class="card-body">
-							<table class="table table-bordered" id="DataTable" width="100%"cellspacing-"0">
-								<thead>
-									<tr>
-										<th>User Name</th>
-										<th>Rating</th>
-										<th>Comment</th>
-									</tr>
-								</thead>
-								<tbody>
-									<c:forEach items="${postFeedbacks}" var="onepostfeedback">
-										<tr>
-											<td>${onepostfeedback.user_name }</td>
-											<td>${onepostfeedback.rating }</td>
-											<td>${onepostfeedback.comment }</td>
-										</tr>
-
-									</c:forEach>
-								</tbody>
-							</table>
-						</div>
-					</div>
-
-					<h1>Your Post Feedback</h1>
-					<form:form method="POST" modelAttribute="postFeedback"
-						action="view-${post.post_id}-post">
-						<table class="postFeedbackForm">
-							<tr>
-								<td height="50" width="150"><label for="rating">Rating</label></td>
-								<td height="50" width="750"><form:input
-										style="width: 500px" path="rating" id="rating" /></td>
-								<td height="50" width="100"><form:errors path="rating"
-										cssClass="error" /></td>
-							</tr>
-
-							<tr>
-								<td height="50" width="150"><label for="comment">Comment</label></td>
-								<td height="50" width="750"><form:input
-										style="width: 500px" path="comment" id="comment" /></td>
-								<td height="50" width="100"><form:errors path="comment"
-										cssClass="error" /></td>
-							</tr>
-
-							<tr style="display: none;">
+					<h1>New Post</h1>
+					<form:form method="POST" modelAttribute="post" action="editPost"
+						onkeypress="return entercheck(event)">
+						<table class="postForm">
+							<tr style="display:none;">
 								<td height="50" width="150"><label for="user_name">User
 										Name </label></td>
-								<td height="50" width="750"><form:input
-										style="width: 500px" path="user_name" id="user_name"
-										value="${user_name}" /></td>
+								<td height="50" width="750"><form:input style="width: 500px" path="user_name"
+										id="user_name" value=""/></td>
 								<td height="50" width="100"><form:errors path="user_name"
 										cssClass="error" /></td>
 							</tr>
 
-							<tr style="display: none;">
-								<td height="50" width="150"><label for="post_id">Post
-										ID</label></td>
-								<td height="50" width="750"><form:input
-										style="width: 500px" path="post_id" id="post_id"
-										value="${ post.post_id }" /></td>
-								<td height="50" width="100"><form:errors path="post_id"
+							<tr>
+								<td height="50" width="150"><label for="company_name">Company
+										Name </label></td>
+								<td height="50" width="750"><form:input readonly="true" style="width: 500px" path="company_name"
+										id="company_name" /></td>
+								<td height="50" width="100"><form:errors
+										path="company_name" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="company_rating">Company
+										Rating </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path="company_rating"
+										id="company_rating" readonly="true" /></td>
+								<td height="50" width="100"><form:errors
+										path="company_rating" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_result">Interview
+										Result </label></td>
+								<td height="50" width="750"><form:input readonly="true" style="width: 500px; height: 50px;" path="interview_result"
+										id="interview_result" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_result" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="100" width="150"><label for="content">Content
+								</label></td>
+								<td height="100" width="750"><form:textarea style="width: 500px; height: 400px;" path="content"
+										id="content" /></td>
+								<td height="100" width="100"><form:errors path="content"
 										cssClass="error" /></td>
 							</tr>
 
+							<tr>
+								<td height="50" width="150"><label for="interview_year">Interview
+										Year </label></td>
+								<td height="50" width="750"><form:input readonly="true" style="width: 500px" path="interview_year"
+										id="interview_year" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_year" cssClass="error" /></td>
+							</tr>
 
+							<tr>
+								<td height="50" width="150"><label for="interview_season">Interview
+										Season </label></td>
+								<td height="50" width="750"><form:input readonly="true" style="width: 500px" path="interview_season"
+										id="interview_season" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_season" cssClass="error" /></td>
+							</tr>
+
+							<tr>
+								<td height="50" width="150"><label for="interview_position">Interview
+										Position </label></td>
+								<td height="50" width="750"><form:input style="width: 500px" path="interview_position"
+										id="interview_position" readonly="true" /></td>
+								<td height="50" width="100"><form:errors
+										path="interview_position" cssClass="error" /></td>
+							</tr>
 						</table>
-						<button type="submit">Submit Feedback</button>
-					</form:form>
 
+						<script>
+							function entercheck(e) {
+								if (e.keyCode == 13) {
+									document.ge.getElementById('contents').innerHTML += "<br />";
+									return false;
+								}
+								return true;
+							}
+						</script>
+						<c:choose>
+							<c:when test="${edit}">
+								<input type="submit" value="Edit" />
+							</c:when>
+							<c:otherwise>
+								<input type="submit" value="Create Post!" />
+							</c:otherwise>
+						</c:choose>
+					</form:form>
 				</div>
 			</div>
 		</div>
