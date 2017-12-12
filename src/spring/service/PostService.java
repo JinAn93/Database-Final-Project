@@ -31,7 +31,6 @@ public class PostService implements IPostService{
 		Post entity = dao.findById(post.getPost_id());
 		if(entity != null){
 			entity.setContent(post.getContent());
-			entity.setPost_date(post.getPost_date());
 		}		
 	}
 
