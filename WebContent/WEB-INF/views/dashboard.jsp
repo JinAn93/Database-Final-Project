@@ -300,7 +300,9 @@
 					<div class="modal-footer">
 						<button class="btn btn-secondary" type="button"
 							data-dismiss="modal">Cancel</button>
-						<a class="btn btn-primary" href="login.html">Logout</a>
+						<form:form action="logout" modelAttribute="user" method="GET">
+						<button class="btn btn-primary" type="submit">Logout</button>
+						</form:form>
 					</div>
 				</div>
 			</div>

@@ -55,10 +55,17 @@ public class LoginController {
 		return "loginPage";
 	}
 
+//	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+//	public String logout(ModelMap model) {
+//		if (model.containsAttribute("user_name"))
+//			return "logout";
+//		return "redirect:/login";
+//	}
+	
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(ModelMap model) {
-		if (model.containsAttribute("user_name"))
-			return "logout";
+	public String logout(@Valid User user, BindingResult result, WebRequest request, HttpServletResponse response, ModelMap model) {
+		System.out.println("debugging");
+		response.addCookie(new Cookie("user_name", null));
 		return "redirect:/login";
 	}
 	
