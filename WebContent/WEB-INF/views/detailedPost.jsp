@@ -222,7 +222,6 @@
 		<div class="container-fluid">
 			<a href="newPost">New</a>
 			<c:if test="${user_name == post.user_name}">
-				<a href="delete-${post.post_id}-post">Delete</a>
 				<a href="edit-${post.post_id}-post">Edit</a>
 			</c:if>
 			<div class="row">
