@@ -212,7 +212,7 @@
 		</div>
 	</nav>
 	<div class="content-wrapper">
-		<%
+		<%-- <%
 			Cookie cookie = null;
 			Cookie[] cookies = null;
 			cookies = request.getCookies();
@@ -228,7 +228,7 @@
 	         } else {
 	            out.println("<h2>No cookies founds</h2>");
 	         }
-		%>
+		%> --%>
 		<div class="container-fluid">
 			<!-- Breadcrumbs-->
 			<ol class="breadcrumb">
@@ -308,7 +308,7 @@
 						<button class="btn btn-secondary" type="button"
 							data-dismiss="modal">Cancel</button>
 						<form:form action="logout" modelAttribute="user" method="GET">
-						<button class="btn btn-primary" type="submit">Logout</button>
+							<button class="btn btn-primary" type="submit">Logout</button>
 						</form:form>
 					</div>
 				</div>
